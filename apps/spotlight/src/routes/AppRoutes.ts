@@ -7,7 +7,7 @@ type NestedRoute = {
   name: string;
 };
 
-type Route = {
+export type Route = {
   path: string;
   name: string;
   menuSettings: MenuSettings;
@@ -16,7 +16,7 @@ type Route = {
 
 type RoutesKeys = 'home' | 'about' | 'projects' | 'contactUs' | 'login';
 
-type Routes = Record<RoutesKeys, Route>;
+export type Routes = Record<RoutesKeys, Route>;
 
 export const AppRoutes: Routes = {
   home: {
