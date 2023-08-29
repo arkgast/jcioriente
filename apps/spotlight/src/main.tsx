@@ -1,23 +1,9 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { Link, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-const App = () => {
-  return (
-    <>
-      <header>
-        <div className="flex justify-end">
-          <Link className="mx-2 p-2 hover:bg-blue-200" to='/'>Inicio</Link>
-          <Link className="mx-2 p-2 hover:bg-blue-400" to='/proyectos'>Proyectos</Link>
-        </div>
-      </header>
-      <main>
-        <h1>JCI Oriente</h1>
-      </main>
-      <Outlet />
-    </>
-  )
-}
+import { App } from './App'
+import { Routes } from './constants'
 
 const routes = createBrowserRouter([
   {
@@ -25,12 +11,12 @@ const routes = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/',
-        element: <h1>Inicio</h1>
+        path: Routes.home.path,
+        element: <h1>{Routes.home.name}</h1>
       },
       {
-        path: '/proyectos',
-        element: <h1>Proyectos</h1>
+        path: Routes.about.path,
+        element: <h1>{Routes.about.name}</h1>
       }
     ]
   }

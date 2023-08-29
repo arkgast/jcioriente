@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Inter var"
+  }
+}
+
+@layer components {
+  .button {
+    @apply rounded border-none px-6 py-2 hover:opacity-50 bg-primary text-light;
+  }
+}
+
+@layer utilities {
+  .grayed-out-disabled {
+    @apply disabled:opacity-50;
+  }
+}
