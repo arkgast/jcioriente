@@ -8,7 +8,7 @@ export function MobileMenuButton({ onClick }: ButtonHTMLAttributes<HTMLButtonEle
       className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
       onClick={onClick}
     >
-      <span className="sr-only">Open main menu</span>
+      <span className="sr-only">Abrir menu principal</span>
       <Bars3Icon className="h-6 w-6" aria-hidden="true" />
     </button>
   );
