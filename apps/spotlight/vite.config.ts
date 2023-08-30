@@ -30,5 +30,6 @@ export default defineConfig({
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    bail: 10, // Stop after 10 test failures
   },
 });
