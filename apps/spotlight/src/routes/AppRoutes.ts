@@ -69,3 +69,9 @@ export const AppRoutes: Routes = {
     },
   },
 };
+
+export function getMainMenuRoutes(): Route[] {
+  return Object.values(AppRoutes).filter(
+    (route) => route.menuSettings.displayInMainMenu,
+  );
+}

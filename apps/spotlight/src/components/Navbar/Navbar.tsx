@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AppRoutes } from '../../routes';
+import { AppRoutes, getMainMenuRoutes } from '../../routes';
 import { BrandLogo } from './BrandLogo';
 import { LoginLink } from './LoginLink';
 import { MainMenuLinks } from './MainMenuLinks';
@@ -13,9 +13,7 @@ const MobileMenuState = {
 
 export function Navbar() {
   const { home, login } = AppRoutes
-  const appRoutes = Object.entries(AppRoutes)
-    .map(([_, route]) => route)
-    .filter(route => route.menuSettings.displayInMainMenu);
+  const appRoutes = getMainMenuRoutes()
 
   const [mobileMenuState, setMobileMenuState] = useState(MobileMenuState.Closed);
 
