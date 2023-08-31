@@ -1,17 +1,7 @@
-import '@testing-library/jest-dom'
-import { fireEvent, render, screen } from '@testing-library/react'
-import { ReactElement } from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { fireEvent, screen } from '@testing-library/react'
 import { AppRoutes, Route, getMainMenuRoutes } from '../../../routes'
 import { MainMenuLinks } from './MainMenuLinks'
-
-function renderWithRouter(ui: ReactElement, { route = "/" } = {}) {
-  return render(
-    <MemoryRouter initialEntries={[route]}>
-      {ui}
-    </MemoryRouter>
-  )
-}
+import { renderWithRouter } from '../../../test'
 
 describe('MainMenuLinks Component', () => {
   let routes: Route[]

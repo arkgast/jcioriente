@@ -1,18 +1,8 @@
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import { ReactElement } from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { screen } from '@testing-library/react'
 import { APP_NAME } from '../../../constants'
 import { AppRoutes } from '../../../routes'
+import { renderWithRouter } from '../../../test'
 import { BrandLogo } from './BrandLogo'
-
-const renderWithRouter = (ui: ReactElement, { route = '/' } = {}) => {
-  return render(
-    <MemoryRouter initialEntries={[route]}>
-      {ui}
-    </MemoryRouter>
-  );
-};
 
 describe('BrandLogo Component', () => {
   const { home, about } = AppRoutes

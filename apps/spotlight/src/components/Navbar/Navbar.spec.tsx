@@ -1,24 +1,6 @@
-import '@testing-library/jest-dom'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import { Navbar } from './Navbar'
-import { ReactElement } from 'react'
-import { MemoryRouter } from 'react-router-dom'
-
-const ResizeObserverMock = vi.fn(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
-}))
-
-vi.stubGlobal('ResizeObserver', ResizeObserverMock)
-
-const renderWithRouter = (ui: ReactElement, { route = '/' } = {}) => {
-  return render(
-    <MemoryRouter initialEntries={[route]}>
-      {ui}
-    </MemoryRouter>
-  )
-}
+import { renderWithRouter } from '../../test'
 
 describe('Navbar Component', () => {
   it('should render the component', () => {

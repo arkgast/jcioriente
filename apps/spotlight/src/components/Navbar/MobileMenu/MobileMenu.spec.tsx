@@ -1,25 +1,7 @@
-import '@testing-library/jest-dom'
-import { fireEvent, render, screen } from '@testing-library/react'
-import { ReactElement } from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { fireEvent, screen } from '@testing-library/react'
 import { AppRoutes, getMainMenuRoutes } from '../../../routes'
 import { MobileMenu } from './MobileMenu'
-
-const ResizeObserverMock = vi.fn(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
-}))
-
-vi.stubGlobal('ResizeObserver', ResizeObserverMock)
-
-const renderWithRouter = (ui: ReactElement, { route = '/' } = {}) => {
-  return render(
-    <MemoryRouter initialEntries={[route]}>
-      {ui}
-    </MemoryRouter>
-  )
-}
+import { renderWithRouter } from '../../../test'
 
 describe('MobileMenu Component', () => {
   const routes = getMainMenuRoutes()

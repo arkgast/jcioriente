@@ -1,32 +1,30 @@
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import { LoginLink } from './LoginLink'
-import { MemoryRouter } from 'react-router-dom'
+import { screen } from '@testing-library/react'
 import { AppRoutes } from '../../../routes'
-
-const renderWithRouter = () => {
-  return render(
-    <MemoryRouter>
-      <LoginLink route={AppRoutes.login} />
-    </MemoryRouter>
-  )
-}
+import { renderWithRouter } from '../../../test'
+import { LoginLink } from './LoginLink'
 
 describe('LoginLink Component', () => {
   it('should render', () => {
-    renderWithRouter()
+    renderWithRouter(
+      <LoginLink route={AppRoutes.login} />
+    )
     const link = screen.getByRole('link')
     expect(link).toBeInTheDocument()
   })
 
   it('should have the correct aria-label', () => {
-    renderWithRouter()
+    renderWithRouter(
+      <LoginLink route={AppRoutes.login} />
+    )
     const link = screen.getByRole('link')
     expect(link.getAttribute('aria-label')).toEqual(`Ir a la página de ${AppRoutes.login.name}`)
   })
 
   it('should set aria-hidden to true for the arrow symbol', () => {
-    renderWithRouter()
+    renderWithRouter(
+      <LoginLink route={AppRoutes.login} />
+    )
+
     const arrow = screen.getByRole('link').querySelector('span')
     expect(arrow).toHaveAttribute('aria-hidden', 'true')
   })
