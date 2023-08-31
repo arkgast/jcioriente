@@ -8,7 +8,7 @@ module.exports = {
   content: [
     join(
       __dirname,
-      '{src,pages,components}/**/*!(*.stories|*.spec).{ts,tsx,html}'
+      '{src,pages,components}/**/*!(*.stories|*.spec).{ts,tsx,html}',
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
@@ -47,7 +47,7 @@ module.exports = {
       },
       // white
       light: {
-        DEFAULT: '#f1f1f1',
+        DEFAULT: '#fff',
         dark: '#b3c1d0',
       },
       // black
