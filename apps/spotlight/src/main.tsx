@@ -4,12 +4,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { App } from './App'
 import { AppRoutes } from './routes'
-import { Home } from './pages'
+import { ErrorPage, Home } from './pages'
 
 const routes = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: AppRoutes.home.path,
