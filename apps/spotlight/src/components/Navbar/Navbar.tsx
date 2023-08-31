@@ -27,12 +27,18 @@ export function Navbar() {
 
   return (
     <header className="bg-white shadow">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <BrandLogo route={home} />
         </div>
         <div className="flex lg:hidden">
-          <MobileMenuButton onClick={handleMenuOpen} />
+          <MobileMenuButton
+            onClick={handleMenuOpen}
+            isExpanded={mobileMenuState === MobileMenuState.Open}
+          />
         </div>
         <MainMenuLinks routes={appRoutes} />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
