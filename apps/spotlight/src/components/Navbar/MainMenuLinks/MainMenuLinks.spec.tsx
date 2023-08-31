@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { ReactElement } from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import { AppRoutes, getMainMenuRoutes, Route } from '../../routes'
+import { AppRoutes, Route, getMainMenuRoutes } from '../../../routes'
 import { MainMenuLinks } from './MainMenuLinks'
 
 function renderWithRouter(ui: ReactElement, { route = "/" } = {}) {
@@ -30,7 +30,7 @@ describe('MainMenuLinks Component', () => {
     renderWithRouter(<MainMenuLinks routes={routes} />)
     const links = screen.getAllByRole('link')
     links.forEach((link, index) => {
-      expect(link).toHaveAttribute('aria-label', `Go to ${routes[index].name} page`)
+      expect(link).toHaveAttribute('aria-label', `Ir a la página de ${routes[index].name}`)
     })
   })
 

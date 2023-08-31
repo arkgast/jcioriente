@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { ReactElement } from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import { AppRoutes, getMainMenuRoutes } from '../../routes'
+import { AppRoutes, getMainMenuRoutes } from '../../../routes'
 import { MobileMenu } from './MobileMenu'
 
 const ResizeObserverMock = vi.fn(() => ({
@@ -80,7 +80,7 @@ describe('MobileMenu Component', () => {
       if (index < routes.length) {
         expect(link).toHaveAttribute('aria-label', `Ir a la página de ${routes[index].name}`)
       } else {
-        expect(link).toHaveAttribute('aria-label', 'Ir a la página de inicio de sesión')
+        expect(link).toHaveAttribute('aria-label', 'Ir a la página de Iniciar sesión')
       }
     })
   })

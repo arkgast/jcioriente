@@ -2,8 +2,8 @@ import { useLocation } from 'react-router-dom'
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom'
-import { BrandLogo } from './BrandLogo';
-import { Route } from '../../routes';
+import { BrandLogo } from '../BrandLogo';
+import { Route } from '../../../routes';
 
 export type MobileMenuProps = {
   open: boolean;
@@ -55,7 +55,7 @@ export function MobileMenu(props: MobileMenuProps) {
                 to={loginRoute.path}
                 className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 aria-current={location.pathname === loginRoute.path ? "page" : undefined}
-                aria-label="Ir a la página de inicio de sesión"
+                aria-label="Ir a la página de Iniciar sesión"
               >
                 {loginRoute.name}
               </Link>
