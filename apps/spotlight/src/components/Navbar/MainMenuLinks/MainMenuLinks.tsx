@@ -10,7 +10,7 @@ export function MainMenuLinks({ routes }: { routes: Route[] }) {
           to={route.path}
           key={route.name}
           aria-label={`Ir a la página de ${route.name}`}
-          aria-current={location.pathname === route.path ? "true" : undefined}
+          aria-current={location.pathname === route.path ? "page" : undefined}
           className="text-sm font-semibold leading-6 text-gray-900"
         >
           {route.name}

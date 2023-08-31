@@ -32,7 +32,7 @@ describe('BrandLogo Component', () => {
   it('should conditionally set aria-current based on the current route', () => {
     const { unmount } = renderWithRouter(<BrandLogo route={home} />, { route: home.path });
     const link = screen.getByRole('link');
-    expect(link.getAttribute('aria-current')).toEqual('true');
+    expect(link.getAttribute('aria-current')).toEqual('page');
 
     // Unmount previous component to avoid having multiple Link components in the DOM
     unmount()

@@ -42,13 +42,13 @@ describe('MainMenuLinks Component', () => {
     const homeLink = screen.getByText(AppRoutes.home.name)
     const aboutLink = screen.getByText(AppRoutes.about.name)
 
-    expect(homeLink).toHaveAttribute('aria-current', 'true')
+    expect(homeLink).toHaveAttribute('aria-current', 'page')
     expect(aboutLink.getAttribute('aria-current')).toBeNull()
 
     fireEvent.click(aboutLink)
 
     expect(homeLink.getAttribute('aria-current')).toBeNull()
-    expect(aboutLink).toHaveAttribute('aria-current', 'true')
+    expect(aboutLink).toHaveAttribute('aria-current', 'page')
   })
 
   it('shoud not set aria-current when location does not match', () => {

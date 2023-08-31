@@ -12,7 +12,7 @@ export function BrandLogo({ route }: { route: Route }) {
       className="-m-1.5 p-1.5"
       data-testid="brand-logo"
       aria-label={`Ir a la página de ${AppRoutes.home.name}`}
-      aria-current={location.pathname === route.path ? 'true' : undefined}
+      aria-current={location.pathname === route.path ? 'page' : undefined}
     >
       <span className="sr-only">{APP_NAME}</span>
       <img
