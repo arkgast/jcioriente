@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    font-family: "Inter var"
+    font-family: 'Inter var', sans-serif;
   }
 }
 
@@ -12,6 +12,7 @@
   .main-menu-link {
     @apply font-semibold text-base leading-6 text-dark hover:text-secondary;
   }
+
   .header-navbar {
     @apply absolute inset-x-0 top-0 z-50 border-b-2 border-secondary border-opacity-40;
     @apply bg-white border-b-2 border-secondary border-opacity-40;
