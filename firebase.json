@@ -1,0 +1,23 @@
+{
+  "hosting": {
+    "public": "dist/apps/spotlight/",
+    "site": "jcioriente",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "emulators": {
+    "hosting": {
+      "port": 4000,
+      "host": "0.0.0.0"
+    }
+  }
+}
