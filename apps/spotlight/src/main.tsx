@@ -2,9 +2,9 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { App } from './App'
-import { AppRoutes } from './routes'
-import { ErrorPage, Home } from './pages'
+import { App } from './App';
+import { AppRoutes } from './routes';
+import { ErrorPage, Home } from './pages';
 
 const routes = createBrowserRouter([
   {
@@ -14,29 +14,29 @@ const routes = createBrowserRouter([
     children: [
       {
         path: AppRoutes.home.path,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: AppRoutes.about.path,
-        element: <h1>{AppRoutes.about.name}</h1>
+        element: <h1>{AppRoutes.about.name}</h1>,
       },
       {
         path: AppRoutes.projects.path,
-        element: <h1>{AppRoutes.projects.name}</h1>
+        element: <h1>{AppRoutes.projects.name}</h1>,
       },
       {
         path: AppRoutes.contactUs.path,
-        element: <h1>{AppRoutes.contactUs.name}</h1>
-      }
-    ]
-  }
-])
+        element: <h1>{AppRoutes.contactUs.name}</h1>,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 root.render(
   <StrictMode>
     <RouterProvider router={routes} />
-  </StrictMode>
+  </StrictMode>,
 );

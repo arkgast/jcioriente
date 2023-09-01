@@ -1,11 +1,14 @@
-import { Bars3Icon, } from '@heroicons/react/24/outline';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 import { ButtonHTMLAttributes } from 'react';
 
 type MobileMenuButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   isExpanded: boolean;
 };
 
-export function MobileMenuButton({ onClick, isExpanded }: MobileMenuButtonProps) {
+export function MobileMenuButton({
+  onClick,
+  isExpanded,
+}: MobileMenuButtonProps) {
   return (
     <button
       type="button"

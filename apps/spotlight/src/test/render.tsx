@@ -5,9 +5,12 @@ import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 type RenderWithRouterOptions = {
   route: string;
   additionalEntries?: string[];
-}
+};
 
-export function renderWithRouter(ui: ReactElement, options: RenderWithRouterOptions = { route: '/' }): RenderResult {
+export function renderWithRouter(
+  ui: ReactElement,
+  options: RenderWithRouterOptions = { route: '/' },
+): RenderResult {
   const { route, additionalEntries } = options;
   const routes = [
     {
@@ -17,12 +20,12 @@ export function renderWithRouter(ui: ReactElement, options: RenderWithRouterOpti
     ...(additionalEntries || []).map((path) => ({
       path,
       element: ui,
-    }))
-  ]
+    })),
+  ];
 
   const router = createMemoryRouter(routes, {
-    initialEntries: [route]
-  })
+    initialEntries: [route],
+  });
 
   return render(<RouterProvider router={router} />);
-};
+}

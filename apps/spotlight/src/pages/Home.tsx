@@ -1,4 +1,4 @@
-import HomeCover from '../assets/home-cover.jpeg'
+import HomeCover from '../assets/home-cover.jpeg';
 
 export function Home() {
   return (
@@ -35,8 +35,9 @@ export function Home() {
             JCI Oriente, jovenes comprometidos con la sociedad.
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-            fugiat veniam occaecat fugiat aliqua.
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+            fugiat aliqua.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
@@ -64,5 +65,5 @@ export function Home() {
         />
       </div>
     </>
-  )
+  );
 }

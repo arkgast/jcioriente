@@ -8,21 +8,23 @@ import { MobileMenuButton } from './MobileMenuButton';
 
 const MobileMenuState = {
   Open: 'open',
-  Closed: 'closed'
-}
+  Closed: 'closed',
+};
 
 export function Navbar() {
-  const { home, login } = AppRoutes
-  const appRoutes = getMainMenuRoutes()
+  const { home, login } = AppRoutes;
+  const appRoutes = getMainMenuRoutes();
 
-  const [mobileMenuState, setMobileMenuState] = useState(MobileMenuState.Closed);
+  const [mobileMenuState, setMobileMenuState] = useState(
+    MobileMenuState.Closed,
+  );
 
   function handleMenuOpen() {
-    setMobileMenuState(MobileMenuState.Open)
+    setMobileMenuState(MobileMenuState.Open);
   }
 
   function handleMenuClose() {
-    setMobileMenuState(MobileMenuState.Closed)
+    setMobileMenuState(MobileMenuState.Closed);
   }
 
   return (
