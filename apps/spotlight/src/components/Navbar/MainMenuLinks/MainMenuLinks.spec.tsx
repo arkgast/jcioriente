@@ -26,7 +26,7 @@ describe('MainMenuLinks Component', () => {
 
   it('should update aria-current when location changes', () => {
     renderWithRouter(
-      <MainMenuLinks routes={routes} />, { route: AppRoutes.home.path }
+      <MainMenuLinks routes={routes} />, { route: AppRoutes.home.path, additionalEntries: [AppRoutes.about.path] }
     )
 
     const homeLink = screen.getByText(AppRoutes.home.name)
