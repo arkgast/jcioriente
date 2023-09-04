@@ -25,29 +25,29 @@
   }
 
   .facebook-icon {
-    --icon-color: #4267B2;
+    --icon-color: #4267b2;
 
     @apply social-icon;
   }
 
   .instagram-icon {
-    --icon-color: #C13584;
+    --icon-color: #c13584;
 
     @apply social-icon;
   }
 
   .twitter-icon {
-    --icon-color: #1DA1F2;
+    --icon-color: #1da1f2;
 
     @apply social-icon;
   }
 
   .youtube-icon {
-    --icon-color: #F00;
+    --icon-color: #f00;
 
     @apply social-icon;
   }
-  
+
   .tiktok-icon {
     --icon-color: #000;
 

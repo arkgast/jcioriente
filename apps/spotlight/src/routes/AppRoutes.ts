@@ -1,24 +1,8 @@
-type MenuSettings = {
-  displayInMainMenu: boolean;
-};
+import { Routes, Route } from '@jcioriente/types';
 
-type NestedRoute = {
-  path: string;
-  name: string;
-};
+export type RoutesKeys = 'home' | 'about' | 'projects' | 'contactUs' | 'login';
 
-export type Route = {
-  path: string;
-  name: string;
-  menuSettings: MenuSettings;
-  children?: Record<string, NestedRoute>;
-};
-
-type RoutesKeys = 'home' | 'about' | 'projects' | 'contactUs' | 'login';
-
-export type Routes = Record<RoutesKeys, Route>;
-
-export const AppRoutes: Routes = {
+export const AppRoutes: Routes<RoutesKeys> = {
   home: {
     path: '/',
     name: 'Inicio',

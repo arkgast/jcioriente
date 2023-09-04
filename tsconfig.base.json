@@ -10,24 +10,15 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jcioriente/classnames": [
-        "libs/classnames/src/index.ts"
-      ],
-      "@jcioriente/ui": [
-        "libs/ui/src/index.ts"
-      ]
+      "@jcioriente/classnames": ["libs/classnames/src/index.ts"],
+      "@jcioriente/types": ["libs/types/src/index.ts"],
+      "@jcioriente/ui": ["libs/ui/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
