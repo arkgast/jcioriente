@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { APP_NAME } from '../../constants';
 
 export const mainNavigation = [
-  { name: 'Postulate', to: '#' },
-  { name: 'Actividades', to: '#' },
-  { name: 'Historia', to: '#' },
-  { name: 'Convenios', to: '#' },
+  { name: 'Postulate', to: '/' },
+  { name: 'Actividades', to: '/' },
+  { name: 'Historia', to: '/' },
+  { name: 'Convenios', to: '/' },
 ];
 
 export const socialNetworks = [
