@@ -63,6 +63,7 @@ export function Icon(iconProps: SocialNetworkIcon) {
       fill="currentColor"
       viewBox="0 0 24 24"
       className={classnames(className, socialNetwork.className)}
+      data-testid="icon"
       {...props}
     >
       <path fillRule="evenodd" clipRule="evenodd" d={socialNetwork.d} />
