@@ -14,4 +14,4 @@ export type Route = {
   children?: Record<string, NestedRoute>;
 };
 
-export type Routes<T extends string | number | symbol> = Record<T, Route>;
+export type Routes<T extends string> = Record<T, Route>;
