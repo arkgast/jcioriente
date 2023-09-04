@@ -17,10 +17,40 @@
     @apply absolute inset-x-0 top-0 z-50 border-b-2 border-secondary border-opacity-40;
     @apply bg-white border-b-2 border-secondary border-opacity-40;
   }
-}
 
-@layer utilities {
-  .grayed-out-disabled {
-    @apply disabled:opacity-50;
+  .social-icon {
+    color: var(--icon-color);
+
+    @apply brightness-90 hover:brightness-125;
+  }
+
+  .facebook-icon {
+    --icon-color: #4267B2;
+
+    @apply social-icon;
+  }
+
+  .instagram-icon {
+    --icon-color: #C13584;
+
+    @apply social-icon;
+  }
+
+  .twitter-icon {
+    --icon-color: #1DA1F2;
+
+    @apply social-icon;
+  }
+
+  .youtube-icon {
+    --icon-color: #F00;
+
+    @apply social-icon;
+  }
+  
+  .tiktok-icon {
+    --icon-color: #000;
+
+    @apply social-icon;
   }
 }
