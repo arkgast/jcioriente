@@ -1,5 +1,5 @@
 import { NestedRoute } from '@jcioriente/types';
-import { screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { AppRoutes, getChildrenRoutes } from '../../routes';
 import { renderWithRouter } from '../../test';
 import { Footer, socialMediaLinks } from './Footer';
@@ -62,8 +62,8 @@ describe('Footer', () => {
       links.length,
     );
     socialNetworksLinks.forEach((link, index) => {
-      const socialNetworkHref = socialMediaLinks[index].href;
-      expect(link).toHaveAttribute('href', socialNetworkHref);
+      const socialNetworkHref = socialMediaLinks[index].path;
+      expect(link.getAttribute('href')).toEqual(socialNetworkHref);
     });
   });
 
@@ -72,8 +72,8 @@ describe('Footer', () => {
     const links = screen.getAllByRole('link');
     const mainNavigationLinks = links.slice(0, mainNavigation.length);
     mainNavigationLinks.forEach((link, index) => {
-      const mainNavigationHref = mainNavigation[index].to;
-      expect(link).toHaveAttribute('href', mainNavigationHref);
+      const mainNavigationHref = mainNavigation[index].path;
+      expect(link.getAttribute('href')).toEqual(mainNavigationHref);
     });
   });
 
@@ -85,5 +85,31 @@ describe('Footer', () => {
       const mainNavigationName = mainNavigation[index].name;
       expect(link).toHaveTextContent(mainNavigationName);
     });
+  });
+
+  it('should change aria-current when the route changes', () => {
+    const footerLinks = AppRoutes.footerNavigation.children;
+    if (!footerLinks) {
+      return expect(footerLinks).toBeDefined();
+    }
+
+    renderWithRouter(<Footer />, {
+      route: footerLinks.history.path,
+      additionalEntries: [footerLinks.activities.path],
+    });
+
+    const historyLink = footerLinks.history;
+    const activitiesLink = footerLinks.activities;
+
+    const historyLinkElement = screen.getByText(historyLink.name);
+    const activitiesLinkElement = screen.getByText(activitiesLink.name);
+
+    expect(historyLinkElement).toHaveAttribute('aria-current', 'page');
+    expect(activitiesLinkElement).not.toHaveAttribute('aria-current', 'page');
+
+    fireEvent.click(activitiesLinkElement);
+
+    expect(historyLinkElement).not.toHaveAttribute('aria-current', 'page');
+    expect(activitiesLinkElement).toHaveAttribute('aria-current', 'page');
   });
 });
