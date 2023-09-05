@@ -7,11 +7,17 @@ export type NestedRoute = {
   name: string;
 };
 
-export type Route = {
+export type Route<
+  Children extends Record<string, NestedRoute> = Record<string, never>,
+> = {
   path: string;
   name: string;
   menuSettings: MenuSettings;
-  children?: Record<string, NestedRoute>;
+  children?: Children;
 };
 
-export type Routes<T extends string> = Record<T, Route>;
+export type NestedRoutes = Record<string, Record<string, NestedRoute>>;
+
+export type Routes<T extends string, N extends NestedRoutes> = {
+  [K in T]: K extends keyof N ? Route<N[K]> : Route;
+};
