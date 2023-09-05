@@ -1,6 +1,12 @@
-import { Routes, Route } from '@jcioriente/types';
+import { Routes, Route, NestedRoute } from '@jcioriente/types';
 
-export type RoutesKeys = 'home' | 'about' | 'projects' | 'contactUs' | 'login';
+export type RoutesKeys =
+  | 'home'
+  | 'about'
+  | 'projects'
+  | 'contactUs'
+  | 'login'
+  | 'footerNavigation';
 
 export const AppRoutes: Routes<RoutesKeys> = {
   home: {
@@ -52,10 +58,39 @@ export const AppRoutes: Routes<RoutesKeys> = {
       displayInMainMenu: false,
     },
   },
+  footerNavigation: {
+    path: '#',
+    name: 'Footer navigation',
+    menuSettings: {
+      displayInMainMenu: false,
+    },
+    children: {
+      apply: {
+        path: '/postulate',
+        name: 'Postúlate',
+      },
+      activities: {
+        path: '/actividades',
+        name: 'Actividades',
+      },
+      history: {
+        path: '/historia',
+        name: 'Historia',
+      },
+      alliances: {
+        path: '/alianzas',
+        name: 'Alianzas',
+      },
+    },
+  },
 };
 
 export function getMainMenuRoutes(): Route[] {
   return Object.values(AppRoutes).filter(
     (route) => route.menuSettings.displayInMainMenu,
   );
+}
+
+export function getChildrenRoutes(route: Route): NestedRoute[] {
+  return Object.values(route.children ?? {});
 }

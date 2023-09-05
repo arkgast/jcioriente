@@ -1,8 +1,16 @@
+import { NestedRoute } from '@jcioriente/types';
 import { screen } from '@testing-library/react';
+import { AppRoutes, getChildrenRoutes } from '../../routes';
 import { renderWithRouter } from '../../test';
-import { Footer, socialNetworks, mainNavigation } from './Footer';
+import { Footer, socialMediaLinks } from './Footer';
 
 describe('Footer', () => {
+  let mainNavigation: NestedRoute[];
+
+  beforeEach(() => {
+    mainNavigation = getChildrenRoutes(AppRoutes.footerNavigation);
+  });
+
   it('should render successfully', () => {
     renderWithRouter(<Footer />);
     const footer = screen.getByRole('navigation');
@@ -12,7 +20,7 @@ describe('Footer', () => {
   it('should render the correct links', () => {
     renderWithRouter(<Footer />);
     const links = screen.getAllByRole('link');
-    expect(links).toHaveLength(mainNavigation.length + socialNetworks.length);
+    expect(links).toHaveLength(mainNavigation.length + socialMediaLinks.length);
   });
 
   it('should render the correct social networks', () => {
@@ -22,7 +30,7 @@ describe('Footer', () => {
       mainNavigation.length,
       links.length,
     );
-    expect(socialNetworksLinks).toHaveLength(socialNetworks.length);
+    expect(socialNetworksLinks).toHaveLength(socialMediaLinks.length);
   });
 
   it('should render the correct main navigation', () => {
@@ -40,7 +48,7 @@ describe('Footer', () => {
       links.length,
     );
     socialNetworksLinks.forEach((_, index) => {
-      const socialNetworkName = socialNetworks[index].name;
+      const socialNetworkName = socialMediaLinks[index].name;
       const icon = screen.getByText(socialNetworkName);
       expect(icon).toBeInTheDocument();
     });
@@ -54,7 +62,7 @@ describe('Footer', () => {
       links.length,
     );
     socialNetworksLinks.forEach((link, index) => {
-      const socialNetworkHref = socialNetworks[index].href;
+      const socialNetworkHref = socialMediaLinks[index].href;
       expect(link).toHaveAttribute('href', socialNetworkHref);
     });
   });
