@@ -1,7 +1,7 @@
+import { BaseRoute } from '@jcioriente/types';
 import { Link, useLocation } from 'react-router-dom';
-import { Route } from '../../../routes';
 
-export function MainMenuLinks({ routes }: { routes: Route[] }) {
+export function MainMenuLinks({ routes }: { routes: BaseRoute[] }) {
   const location = useLocation();
   return (
     <div className="hidden lg:flex lg:gap-x-12">
