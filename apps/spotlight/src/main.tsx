@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { App } from './App';
 import { AppRoutes } from './routes';
 import { ErrorPage, Home } from './pages';
+import { Login } from './pages/Login';
 
 const routes = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const routes = createBrowserRouter([
       {
         path: AppRoutes.contactUs.path,
         element: <h1>{AppRoutes.contactUs.name}</h1>,
+      },
+      {
+        path: AppRoutes.login.path,
+        element: <Login />,
       },
     ],
   },

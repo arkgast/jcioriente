@@ -60,7 +60,7 @@ export const AppRoutes: Routes<RoutesKeys, NestedRoutes> = {
     },
   },
   login: {
-    path: '/login',
+    path: '/iniciar-sesion',
     name: 'Iniciar sesión',
     menuSettings: {
       displayInMainMenu: false,
