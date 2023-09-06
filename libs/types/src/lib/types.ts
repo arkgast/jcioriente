@@ -2,17 +2,19 @@ export type MenuSettings = {
   displayInMainMenu: boolean;
 };
 
-export type NestedRoute = {
+export type BaseRoute = {
   path: string;
   name: string;
+  menuSettings: MenuSettings;
+};
+
+export type NestedRoute = Omit<BaseRoute, 'menuSettings'> & {
+  menuSettings?: MenuSettings;
 };
 
 export type Route<
   Children extends Record<string, NestedRoute> = Record<string, never>,
-> = {
-  path: string;
-  name: string;
-  menuSettings: MenuSettings;
+> = BaseRoute & {
   children?: Children;
 };
 

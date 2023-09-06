@@ -1,9 +1,10 @@
+import { BaseRoute } from '@jcioriente/types';
 import { Link, useLocation } from 'react-router-dom';
 import LogoImg from '../../../assets/logo.jpeg';
 import { APP_NAME } from '../../../constants';
-import { AppRoutes, Route } from '../../../routes';
+import { AppRoutes } from '../../../routes';
 
-export function BrandLogo({ route }: { route: Route }) {
+export function BrandLogo({ route }: { route: BaseRoute }) {
   const location = useLocation();
   const ariaCurrent = location.pathname === route.path ? 'page' : undefined;
 

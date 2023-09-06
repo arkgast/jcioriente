@@ -1,9 +1,9 @@
 import { NestedRoute } from '@jcioriente/types';
 import { Icon, IconNames, IconProps } from '@jcioriente/ui';
+import { ReactElement } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { APP_NAME } from '../../constants';
 import { AppRoutes, getChildrenRoutes } from '../../routes';
-import { ReactElement } from 'react';
 
 type SocialMediaLink = NestedRoute & {
   icon: (props: IconProps) => ReactElement;

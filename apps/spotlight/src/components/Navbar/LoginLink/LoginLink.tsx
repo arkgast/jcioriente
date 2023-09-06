@@ -1,7 +1,7 @@
+import { BaseRoute } from '@jcioriente/types';
 import { Link } from 'react-router-dom';
-import { Route } from '../../../routes';
 
-export function LoginLink({ route }: { route: Route }) {
+export function LoginLink({ route }: { route: BaseRoute }) {
   return (
     <Link
       to={route.path}

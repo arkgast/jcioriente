@@ -1,15 +1,15 @@
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
-import { Route } from '../../../routes';
 import { BrandLogo } from '../BrandLogo';
+import { BaseRoute } from '@jcioriente/types';
 
 export type MobileMenuProps = {
   open: boolean;
   onClose: () => void;
-  routes: Route[];
-  homeRoute: Route;
-  loginRoute: Route;
+  routes: BaseRoute[];
+  homeRoute: BaseRoute;
+  loginRoute: BaseRoute;
 };
 
 export function MobileMenu(props: MobileMenuProps) {

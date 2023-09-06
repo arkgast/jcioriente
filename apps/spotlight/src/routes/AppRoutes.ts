@@ -8,7 +8,15 @@ export type RoutesKeys =
   | 'login'
   | 'footerNavigation';
 
-export const AppRoutes: Routes<RoutesKeys> = {
+type AboutChildren = 'history' | 'members' | 'presidents';
+type FooterChildren = 'apply' | 'activities' | 'alliances' | 'history';
+
+type NestedRoutes = {
+  about: Record<AboutChildren, NestedRoute>;
+  footerNavigation: Record<FooterChildren, NestedRoute>;
+};
+
+export const AppRoutes: Routes<RoutesKeys, NestedRoutes> = {
   home: {
     path: '/',
     name: 'Inicio',
@@ -74,7 +82,7 @@ export const AppRoutes: Routes<RoutesKeys> = {
         name: 'Actividades',
       },
       history: {
-        path: '/historia',
+        path: '/quienes-somos/historia',
         name: 'Historia',
       },
       alliances: {
@@ -85,12 +93,15 @@ export const AppRoutes: Routes<RoutesKeys> = {
   },
 };
 
-export function getMainMenuRoutes(): Route[] {
+// TODO: Improve Route type in order to have a better type inference.
+export function getMainMenuRoutes(): Route<Record<string, NestedRoute>>[] {
   return Object.values(AppRoutes).filter(
     (route) => route.menuSettings.displayInMainMenu,
   );
 }
 
-export function getChildrenRoutes(route: Route): NestedRoute[] {
+export function getChildrenRoutes(
+  route: Route<Record<string, NestedRoute>>,
+): NestedRoute[] {
   return Object.values(route.children ?? {});
 }

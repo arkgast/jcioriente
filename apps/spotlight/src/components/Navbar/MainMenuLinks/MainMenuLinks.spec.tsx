@@ -1,10 +1,11 @@
+import { NestedRoute, Route } from '@jcioriente/types';
 import { fireEvent, screen } from '@testing-library/react';
-import { AppRoutes, Route, getMainMenuRoutes } from '../../../routes';
+import { AppRoutes, getMainMenuRoutes } from '../../../routes';
 import { renderWithRouter } from '../../../test';
 import { MainMenuLinks } from './MainMenuLinks';
 
 describe('MainMenuLinks Component', () => {
-  let routes: Route[];
+  let routes: Route<Record<string, NestedRoute>>[];
 
   beforeAll(() => {
     routes = getMainMenuRoutes();
