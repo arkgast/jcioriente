@@ -55,6 +55,7 @@ export function Login() {
             <Button
               type="submit"
               className="flex w-full justify-center leading-6"
+              variant="outline"
               color="secondary"
             >
               Iniciar sesión

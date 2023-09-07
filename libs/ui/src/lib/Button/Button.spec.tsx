@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
-import { Button, sizeClasses, variantColorClasses } from './Button';
+import { Button } from './Button';
+import { sizeClasses, variantColorClasses } from './buttonClasses';
 
 describe('Button', () => {
   beforeAll(() => {
