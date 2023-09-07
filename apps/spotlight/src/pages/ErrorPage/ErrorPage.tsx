@@ -34,3 +34,5 @@ export function ErrorPage() {
     </div>
   );
 }
+
+export default ErrorPage;

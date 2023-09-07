@@ -1,11 +1,12 @@
-import { StrictMode } from 'react';
+import { StrictMode, Suspense, lazy } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-
 import { App } from './App';
 import { AppRoutes } from './routes';
-import { ErrorPage, Home } from './pages';
-import { Login } from './pages/Login';
+
+const Home = lazy(() => import('./pages/Home'));
+const ErrorPage = lazy(() => import('./pages/ErrorPage/ErrorPage'));
+const Login = lazy(() => import('./pages/Login/Login'));
 
 const routes = createBrowserRouter([
   {
@@ -54,6 +55,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <RouterProvider router={routes} />
+    <Suspense fallback={<h1>Loading</h1>}>
+      <RouterProvider router={routes} />
+    </Suspense>
   </StrictMode>,
 );
