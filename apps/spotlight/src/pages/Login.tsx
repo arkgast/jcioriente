@@ -52,12 +52,7 @@ export function Login() {
           </div>
 
           <div>
-            <Button
-              type="submit"
-              className="flex w-full justify-center leading-6"
-              variant="outline"
-              color="secondary"
-            >
+            <Button type="submit" className="w-full" color="secondary">
               Iniciar sesión
             </Button>
           </div>

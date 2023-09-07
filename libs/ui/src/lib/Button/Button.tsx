@@ -27,7 +27,7 @@ export function Button({
     <button
       {...props}
       className={classnames(
-        'rounded-md font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ',
+        'font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ',
         variantColorClass,
         sizeClass,
         className,

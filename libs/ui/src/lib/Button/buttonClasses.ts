@@ -11,7 +11,7 @@ import {
 export const sizeClasses = {
   sm: 'px-2.5 py-1.5 rounded text-xs',
   md: 'px-3 py-1.5 rounded-md text-sm',
-  lg: 'px-4 py-2 rounded-lg text-sm',
+  lg: 'px-4 py-2 rounded-lg text-base',
 };
 
 export const variantColorClasses = {
@@ -61,7 +61,7 @@ export function getVariantColorClasses(
   if (!variantColorClasses[variant]) {
     console.warn(
       `The variant "${variant}" is not supported. Using the default variant "${DefaultProps.variant}" instead.`,
-      `Button.tsx:71`,
+      `Button.tsx:21`,
     );
     variantClass = DefaultProps.variant;
   }
@@ -70,7 +70,7 @@ export function getVariantColorClasses(
   if (!variantColorClasses[variantClass][color]) {
     console.warn(
       `The color "${color}" is not supported. Using the default color "${DefaultProps.color}" instead.`,
-      'Button.tsx:80',
+      'Button.tsx:24',
     );
     colorClass = DefaultProps.color;
   }
