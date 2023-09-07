@@ -7,7 +7,7 @@ import { getSizeClasses, getVariantColorClasses } from './buttonClasses';
  * Button component that renders a button with the correct styles.
  *
  * @param {ButtonProps} props - The button component props.
- * @returns {JSX.Element} The rendered button element.
+ * @returns {ReactElement<HTMLButtonElement>} The rendered button element.
  */
 export function Button({
   children,
