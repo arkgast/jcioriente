@@ -8,10 +8,10 @@ export const App = () => {
       <header className="header-navbar">
         <Navbar />
       </header>
-      <main className="relative isolate overflow-hidden pt-14">
+      <main>
         <Outlet />
       </main>
-      <footer className="bg-white">
+      <footer>
         <Footer />
       </footer>
     </>

@@ -19,15 +19,27 @@ const routes = createBrowserRouter([
       },
       {
         path: AppRoutes.about.path,
-        element: <h1>{AppRoutes.about.name}</h1>,
+        element: (
+          <h1 className="text-center font-semibold py-16">
+            {AppRoutes.about.name}
+          </h1>
+        ),
       },
       {
         path: AppRoutes.projects.path,
-        element: <h1>{AppRoutes.projects.name}</h1>,
+        element: (
+          <h1 className="text-center font-semibold py-16">
+            {AppRoutes.projects.name}
+          </h1>
+        ),
       },
       {
         path: AppRoutes.contactUs.path,
-        element: <h1>{AppRoutes.contactUs.name}</h1>,
+        element: (
+          <h1 className="text-center font-semibold py-16">
+            {AppRoutes.contactUs.name}
+          </h1>
+        ),
       },
       {
         path: AppRoutes.login.path,

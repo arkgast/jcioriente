@@ -14,7 +14,7 @@
   }
 
   .header-navbar {
-    @apply absolute inset-x-0 top-0 z-50 border-b-2 border-secondary border-opacity-40;
+    @apply inset-x-0 top-0 z-50 border-b-2 border-secondary border-opacity-40;
     @apply bg-white border-b-2 border-secondary border-opacity-40;
   }
 

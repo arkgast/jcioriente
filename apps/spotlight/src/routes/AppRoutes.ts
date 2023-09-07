@@ -74,19 +74,19 @@ export const AppRoutes: Routes<RoutesKeys, NestedRoutes> = {
     },
     children: {
       apply: {
-        path: '/postulate',
+        path: '/',
         name: 'Postúlate',
       },
       activities: {
-        path: '/actividades',
+        path: '/',
         name: 'Actividades',
       },
       history: {
-        path: '/quienes-somos/historia',
+        path: '/',
         name: 'Historia',
       },
       alliances: {
-        path: '/alianzas',
+        path: '/',
         name: 'Alianzas',
       },
     },
