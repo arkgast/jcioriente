@@ -1,32 +1,43 @@
-import { Button, Input } from '@jcioriente/ui';
-import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Button, Input } from '@jcioriente/ui';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+// Define the shape of the form data using Zod schema.
 const schema = z.object({
-  email: z.string().email({ message: 'Correo electrónico inválido.' }),
+  email: z.string().email({ message: 'El correo electrónico no es válido' }),
   password: z
     .string()
-    .min(6, { message: 'La contraseña debe tener al menos 6 caracteres.' }),
+    .min(6, { message: 'La contraseña debe tener al menos 6 caracteres' }),
 });
 
+// Define the shape of the form data.
 type Inputs = {
   email: string;
   password: string;
 };
 
 export function Login() {
+  // Initialize React Hook Form and set up validation using Zod schema.
   const {
     register,
     handleSubmit,
-    setValue,
+    reset,
     formState: { errors },
   } = useForm<Inputs>({ resolver: zodResolver(schema) });
+  const [loading, setLoading] = useState(false);
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-    console.log({ data });
-    setValue('email', '');
-    setValue('password', '');
+    // Simulate API call.
+    setLoading(true);
+    window.setTimeout(() => {
+      console.log({ data });
+
+      reset();
+
+      setLoading(false);
+    }, 2000);
   };
 
   return (
@@ -70,7 +81,12 @@ export function Login() {
           </div>
 
           <div>
-            <Button type="submit" className="w-full" color="secondary">
+            <Button
+              type="submit"
+              className="w-full"
+              color="secondary"
+              disabled={loading}
+            >
               Iniciar sesión
             </Button>
           </div>
