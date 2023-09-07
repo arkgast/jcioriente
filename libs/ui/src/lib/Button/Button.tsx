@@ -1,7 +1,11 @@
 import { classnames } from '@jcioriente/classnames';
 import { ReactElement, useMemo } from 'react';
 import { ButtonProps, DefaultProps } from './ButtonProps';
-import { getSizeClasses, getVariantColorClasses } from './buttonClasses';
+import {
+  getDisabledClasses,
+  getSizeClasses,
+  getVariantColorClasses,
+} from './buttonClasses';
 
 /**
  * Button component that renders a button with the correct styles.
@@ -12,9 +16,9 @@ import { getSizeClasses, getVariantColorClasses } from './buttonClasses';
 export function Button({
   children,
   className,
-  variant = DefaultProps.variant,
-  size = DefaultProps.size,
   color = DefaultProps.color,
+  size = DefaultProps.size,
+  variant = DefaultProps.variant,
   ...props
 }: ButtonProps): ReactElement<HTMLButtonElement> {
   const variantColorClass = useMemo(
@@ -22,15 +26,20 @@ export function Button({
     [variant, color],
   );
   const sizeClass = useMemo(() => getSizeClasses(size), [size]);
+  const disabledClass = useMemo(
+    () => getDisabledClasses(props.disabled, variant),
+    [props.disabled, variant],
+  );
 
   return (
     <button
       {...props}
       className={classnames(
-        'font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ',
+        'font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+        className,
         variantColorClass,
         sizeClass,
-        className,
+        disabledClass,
       )}
     >
       {children}

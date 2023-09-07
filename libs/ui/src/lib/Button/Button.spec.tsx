@@ -1,6 +1,11 @@
 import { fireEvent, render } from '@testing-library/react';
 import { Button } from './Button';
-import { sizeClasses, variantColorClasses } from './buttonClasses';
+import {
+  disabledClasses,
+  sizeClasses,
+  variantColorClasses,
+} from './buttonClasses';
+import { ButtonVariant } from './ButtonProps';
 
 describe('Button', () => {
   beforeAll(() => {
@@ -59,4 +64,24 @@ describe('Button', () => {
     fireEvent.click(button);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it.each(['solid', 'outline'])(
+    'should handle the disabled prop',
+    (variant) => {
+      const onClick = vi.fn();
+      const { getByText } = render(
+        <Button disabled variant={variant as ButtonVariant} onClick={onClick}>
+          Click me
+        </Button>,
+      );
+
+      const button = getByText('Click me');
+      fireEvent.click(button);
+
+      expect(onClick).toHaveBeenCalledTimes(0);
+      expect(button.getAttribute('class')).toContain(
+        disabledClasses[variant as ButtonVariant],
+      );
+    },
+  );
 });

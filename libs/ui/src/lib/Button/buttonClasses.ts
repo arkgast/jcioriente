@@ -41,6 +41,13 @@ export const variantColorClasses = {
   },
 };
 
+export const disabledClasses: Record<ButtonVariant, string> = {
+  solid:
+    'bg-gray-100 text-gray-400 hover:bg-gray-100 hover:brightness-100 cursor-not-allowed',
+  outline:
+    'border-gray-100 text-gray-400 hover:bg-white hover:text-gray-400 cursor-not-allowed',
+};
+
 /**
  * Get the CSS class for the button's color based on its variant and color prop.
  *
@@ -57,6 +64,7 @@ export function getVariantColorClasses(
     return variantColorClasses[variant][color];
   }
 
+  // If the variant is not supported, we use the default variant.
   let variantClass = variant;
   if (!variantColorClasses[variant]) {
     console.warn(
@@ -66,6 +74,7 @@ export function getVariantColorClasses(
     variantClass = DefaultProps.variant;
   }
 
+  // If the color is not supported, we use the default color.
   let colorClass = color;
   if (!variantColorClasses[variantClass][color]) {
     console.warn(
@@ -93,4 +102,30 @@ export function getSizeClasses(size: ButtonSize): string {
     `The size "${size}" is not supported. Using the default size "${DefaultProps.size}" instead.`,
   );
   return sizeClasses[DefaultProps.size];
+}
+
+/**
+ * Get the CSS class for the button's disabled state based on its variant.
+ *
+ * @param {boolean} disabled - The button's disabled state.
+ * @param {ButtonVariant} variant - The button's variant.
+ * @returns {string} The CSS class for the button's disabled state.
+ */
+export function getDisabledClasses(
+  disabled: boolean | undefined,
+  variant: ButtonVariant,
+): string {
+  if (!disabled) {
+    return '';
+  }
+
+  if (disabledClasses[variant]) {
+    return disabledClasses[variant];
+  }
+
+  console.warn(
+    `The variant "${variant}" is not supported. Using the default variant "${DefaultProps.variant}" instead.`,
+    `Button.tsx:30`,
+  );
+  return disabledClasses[DefaultProps.variant];
 }
