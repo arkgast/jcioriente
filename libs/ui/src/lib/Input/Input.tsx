@@ -1,8 +1,12 @@
 import { classnames } from '@jcioriente/classnames';
 import { InputProps } from './InputProps';
 import { inputClasses } from './inputClasses';
+import { ForwardedRef, forwardRef } from 'react';
 
-export function Input({ label, error, helperText, ...props }: InputProps) {
+export const Input = forwardRef(function Input(
+  { label, error, helperText, ...props }: InputProps,
+  ref: ForwardedRef<HTMLInputElement>,
+) {
   return (
     <>
       {label && (
@@ -20,6 +24,7 @@ export function Input({ label, error, helperText, ...props }: InputProps) {
             helperText && {
               'aria-describedby': `${props.id}-error-helper-text`,
             })}
+          ref={ref}
           className={classnames(
             inputClasses.base,
             inputClasses.border,
@@ -41,4 +46,4 @@ export function Input({ label, error, helperText, ...props }: InputProps) {
       )}
     </>
   );
-}
+});
