@@ -6,6 +6,12 @@ const App = lazy(() => import('../App'));
 const Home = lazy(() => import('../pages/Home'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 const Login = lazy(() => import('../pages/Login'));
+const About = lazy(() => import('../pages/About'));
+const Contact = lazy(() => import('../pages/Contact'));
+const Projects = lazy(() => import('../pages/Projects'));
+const Activities = lazy(() => import('../pages/Activities'));
+const Alliances = lazy(() => import('../pages/Alliances'));
+const History = lazy(() => import('../pages/History'));
 
 const routes = createBrowserRouter([
   {
@@ -19,31 +25,31 @@ const routes = createBrowserRouter([
       },
       {
         path: appRoutes.about.path,
-        element: (
-          <h1 className="text-center font-semibold py-16">
-            {appRoutes.about.name}
-          </h1>
-        ),
+        element: <About />,
       },
       {
         path: appRoutes.projects.path,
-        element: (
-          <h1 className="text-center font-semibold py-16">
-            {appRoutes.projects.name}
-          </h1>
-        ),
+        element: <Projects />,
       },
       {
         path: appRoutes.contactUs.path,
-        element: (
-          <h1 className="text-center font-semibold py-16">
-            {appRoutes.contactUs.name}
-          </h1>
-        ),
+        element: <Contact />,
       },
       {
         path: appRoutes.login.path,
         element: <Login />,
+      },
+      {
+        path: appRoutes.footerNavigation.children?.activities.path,
+        element: <Activities />,
+      },
+      {
+        path: appRoutes.footerNavigation.children?.alliances.path,
+        element: <Alliances />,
+      },
+      {
+        path: appRoutes.footerNavigation.children?.history.path,
+        element: <History />,
       },
     ],
   },
