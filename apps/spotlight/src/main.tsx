@@ -1,5 +1,6 @@
 import { StrictMode, Suspense, lazy } from 'react';
 import * as ReactDOM from 'react-dom/client';
+import { SuspenseLoader } from './components/SuspenseLoader';
 
 const Routes = lazy(() => import('./routes/Routes'));
 
@@ -8,7 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <Suspense fallback={<h1>Loading</h1>}>
+    <Suspense fallback={<SuspenseLoader />}>
       <Routes />
     </Suspense>
   </StrictMode>,

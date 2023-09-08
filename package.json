@@ -2,7 +2,10 @@
   "name": "@jcioriente/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build:spotlight": "nx build spotlight",
+    "deploy:spotlight": "yarn build:spotlight && firebase deploy --only hosting"
+  },
   "private": true,
   "engines": {
     "node": "20.5.1",
