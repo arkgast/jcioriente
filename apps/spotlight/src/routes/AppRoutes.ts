@@ -1,22 +1,7 @@
 import { Routes, Route, NestedRoute } from '@jcioriente/types';
+import { MainRoutes, MainRouteKeys, NestedRouteKeys } from './types';
 
-export type RoutesKeys =
-  | 'home'
-  | 'about'
-  | 'projects'
-  | 'contactUs'
-  | 'login'
-  | 'footerNavigation';
-
-type AboutChildren = 'history' | 'members' | 'presidents';
-type FooterChildren = 'apply' | 'activities' | 'alliances' | 'history';
-
-type NestedRoutes = {
-  about: Record<AboutChildren, NestedRoute>;
-  footerNavigation: Record<FooterChildren, NestedRoute>;
-};
-
-export const AppRoutes: Routes<RoutesKeys, NestedRoutes> = {
+export const appRoutes: Routes<MainRouteKeys, NestedRouteKeys> = {
   home: {
     path: '/',
     name: 'Inicio',
@@ -94,8 +79,8 @@ export const AppRoutes: Routes<RoutesKeys, NestedRoutes> = {
 };
 
 // TODO: Improve Route type in order to have a better type inference.
-export function getMainMenuRoutes(): Route<Record<string, NestedRoute>>[] {
-  return Object.values(AppRoutes).filter(
+export function getMainMenuRoutes(): MainRoutes {
+  return Object.values(appRoutes).filter(
     (route) => route.menuSettings.displayInMainMenu,
   );
 }
