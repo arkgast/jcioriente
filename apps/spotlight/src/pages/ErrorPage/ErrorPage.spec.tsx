@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import * as reactRouterDom from 'react-router-dom';
 import { errorMessages } from '../../constants';
-import { AppRoutes } from '../../routes';
+import { appRoutes } from '../../routes';
 import { renderWithRouter } from '../../test';
 import { ErrorPage } from './ErrorPage';
 
@@ -44,7 +44,7 @@ describe('ErrorPage Component', () => {
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute(
       'aria-label',
-      `Ir a la página de ${AppRoutes.home.name}`,
+      `Ir a la página de ${appRoutes.home.name}`,
     );
   });
 });

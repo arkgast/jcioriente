@@ -1,6 +1,6 @@
 import { Link, useRouteError } from 'react-router-dom';
 import { errorMessages } from '../../constants';
-import { AppRoutes } from '../../routes';
+import { appRoutes } from '../../routes';
 
 export function ErrorPage() {
   const error = useRouteError() as { status?: number };
@@ -23,11 +23,11 @@ export function ErrorPage() {
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
-            to={AppRoutes.home.path}
-            aria-label={`Ir a la página de ${AppRoutes.home.name}`}
+            to={appRoutes.home.path}
+            aria-label={`Ir a la página de ${appRoutes.home.name}`}
             className="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-secondary hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger"
           >
-            Ir a la página de {AppRoutes.home.name}
+            Ir a la página de {appRoutes.home.name}
           </Link>
         </div>
       </div>
