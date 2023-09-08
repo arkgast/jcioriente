@@ -1,10 +1,10 @@
+import { Bars3Icon } from '@heroicons/react/24/outline';
 import { BaseRoute, NestedRoute, Route } from '@jcioriente/types';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
-import { LoginLink } from './LoginLink';
 import { MainMenuLinks } from './MainMenuLinks';
 import { MobileMenu } from './MobileMenu';
-import { MobileMenuButton } from './MobileMenuButton';
 
 const MobileMenuState = {
   Open: 'open',
@@ -40,14 +40,25 @@ export function Navbar({ routes, loginRoute, homeRoute }: NavbarProps) {
           <BrandLogo route={homeRoute} />
         </div>
         <div className="flex lg:hidden">
-          <MobileMenuButton
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={handleMenuOpen}
-            isExpanded={mobileMenuState === MobileMenuState.Open}
-          />
+            aria-expanded={mobileMenuState === MobileMenuState.Open}
+          >
+            <span className="sr-only">Abrir menu principal</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
         </div>
         <MainMenuLinks routes={routes} />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <LoginLink route={loginRoute} />
+          <Link
+            to={loginRoute.path}
+            className="main-menu-link"
+            aria-label={`Ir a la página de ${loginRoute.name}`}
+          >
+            {loginRoute.name} <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </nav>
       <MobileMenu

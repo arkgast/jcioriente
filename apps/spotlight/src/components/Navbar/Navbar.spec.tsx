@@ -43,8 +43,8 @@ describe('Navbar Component', () => {
     });
   });
 
-  it('should have the correct aria-expanded attribute', () => {
-    renderWithRouter(
+  it.only('should have the correct aria-expanded attribute', () => {
+    const { container } = renderWithRouter(
       <Navbar
         routes={routes}
         homeRoute={appRoutes.home}
@@ -52,6 +52,7 @@ describe('Navbar Component', () => {
       />,
     );
 
+    screen.debug(container);
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-expanded', 'false');
 
