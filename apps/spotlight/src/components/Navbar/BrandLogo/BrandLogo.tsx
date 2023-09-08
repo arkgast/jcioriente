@@ -2,7 +2,6 @@ import { BaseRoute } from '@jcioriente/types';
 import { Link, useLocation } from 'react-router-dom';
 import LogoImg from '../../../assets/logo.jpeg';
 import { APP_NAME } from '../../../constants';
-import { AppRoutes } from '../../../routes';
 
 export function BrandLogo({ route }: { route: BaseRoute }) {
   const location = useLocation();
@@ -13,7 +12,7 @@ export function BrandLogo({ route }: { route: BaseRoute }) {
       to={route.path}
       className="-m-1.5 p-1.5"
       data-testid="brand-logo"
-      aria-label={`Ir a la página de ${AppRoutes.home.name}`}
+      aria-label={`Ir a la página de ${route.name}`}
       aria-current={ariaCurrent}
     >
       <span className="sr-only">{APP_NAME}</span>

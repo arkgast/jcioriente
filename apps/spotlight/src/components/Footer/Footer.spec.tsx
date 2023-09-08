@@ -1,6 +1,6 @@
 import { NestedRoute } from '@jcioriente/types';
 import { fireEvent, screen } from '@testing-library/react';
-import { AppRoutes, getChildrenRoutes } from '../../routes';
+import { appRoutes, getChildrenRoutes } from '../../routes';
 import { renderWithRouter } from '../../test';
 import { Footer, socialMediaLinks } from './Footer';
 
@@ -8,23 +8,23 @@ describe('Footer', () => {
   let mainNavigation: NestedRoute[];
 
   beforeEach(() => {
-    mainNavigation = getChildrenRoutes(AppRoutes.footerNavigation);
+    mainNavigation = getChildrenRoutes(appRoutes.footerNavigation);
   });
 
   it('should render successfully', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const footer = screen.getByRole('navigation');
     expect(footer).toBeInTheDocument();
   });
 
   it('should render the correct links', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const links = screen.getAllByRole('link');
     expect(links).toHaveLength(mainNavigation.length + socialMediaLinks.length);
   });
 
   it('should render the correct social networks', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const links = screen.getAllByRole('link');
     const socialNetworksLinks = links.slice(
       mainNavigation.length,
@@ -34,14 +34,14 @@ describe('Footer', () => {
   });
 
   it('should render the correct main navigation', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const links = screen.getAllByRole('link');
     const mainNavigationLinks = links.slice(0, mainNavigation.length);
     expect(mainNavigationLinks).toHaveLength(mainNavigation.length);
   });
 
   it('should render the correct social networks icons', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const links = screen.getAllByRole('link');
     const socialNetworksLinks = links.slice(
       mainNavigation.length,
@@ -55,7 +55,7 @@ describe('Footer', () => {
   });
 
   it('should render the correct social networks links', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const links = screen.getAllByRole('link');
     const socialNetworksLinks = links.slice(
       mainNavigation.length,
@@ -68,7 +68,7 @@ describe('Footer', () => {
   });
 
   it('should render the correct main navigation links', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const links = screen.getAllByRole('link');
     const mainNavigationLinks = links.slice(0, mainNavigation.length);
     mainNavigationLinks.forEach((link, index) => {
@@ -78,7 +78,7 @@ describe('Footer', () => {
   });
 
   it('should render the correct main navigation names', () => {
-    renderWithRouter(<Footer />);
+    renderWithRouter(<Footer routes={mainNavigation} />);
     const links = screen.getAllByRole('link');
     const mainNavigationLinks = links.slice(0, mainNavigation.length);
     mainNavigationLinks.forEach((link, index) => {
@@ -88,12 +88,12 @@ describe('Footer', () => {
   });
 
   it('should change aria-current when the route changes', () => {
-    const footerLinks = AppRoutes.footerNavigation.children;
+    const footerLinks = appRoutes.footerNavigation.children;
     if (!footerLinks) {
       return expect(footerLinks).toBeDefined();
     }
 
-    renderWithRouter(<Footer />, {
+    renderWithRouter(<Footer routes={mainNavigation} />, {
       route: footerLinks.history.path,
       additionalEntries: [footerLinks.activities.path],
     });

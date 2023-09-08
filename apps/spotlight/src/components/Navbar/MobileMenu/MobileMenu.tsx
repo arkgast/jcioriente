@@ -1,8 +1,8 @@
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { BaseRoute } from '@jcioriente/types';
 import { Link, useLocation } from 'react-router-dom';
 import { BrandLogo } from '../BrandLogo';
-import { BaseRoute } from '@jcioriente/types';
 
 export type MobileMenuProps = {
   open: boolean;

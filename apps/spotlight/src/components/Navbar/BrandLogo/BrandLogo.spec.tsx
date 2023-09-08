@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react';
 import { APP_NAME } from '../../../constants';
-import { AppRoutes } from '../../../routes';
+import { appRoutes } from '../../../routes';
 import { renderWithRouter } from '../../../test';
 import { BrandLogo } from './BrandLogo';
 
 describe('BrandLogo Component', () => {
-  const { home, about } = AppRoutes;
+  const { home, about } = appRoutes;
 
   it('should render', () => {
     renderWithRouter(<BrandLogo route={home} />);

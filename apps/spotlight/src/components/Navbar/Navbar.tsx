@@ -1,5 +1,5 @@
+import { BaseRoute, NestedRoute, Route } from '@jcioriente/types';
 import { useState } from 'react';
-import { AppRoutes, getMainMenuRoutes } from '../../routes';
 import { BrandLogo } from './BrandLogo';
 import { LoginLink } from './LoginLink';
 import { MainMenuLinks } from './MainMenuLinks';
@@ -11,10 +11,13 @@ const MobileMenuState = {
   Closed: 'closed',
 };
 
-export function Navbar() {
-  const { home, login } = AppRoutes;
-  const appRoutes = getMainMenuRoutes();
+type NavbarProps = {
+  routes: Route<Record<string, NestedRoute>>[];
+  homeRoute: BaseRoute;
+  loginRoute: BaseRoute;
+};
 
+export function Navbar({ routes, loginRoute, homeRoute }: NavbarProps) {
   const [mobileMenuState, setMobileMenuState] = useState(
     MobileMenuState.Closed,
   );
@@ -34,7 +37,7 @@ export function Navbar() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <BrandLogo route={home} />
+          <BrandLogo route={homeRoute} />
         </div>
         <div className="flex lg:hidden">
           <MobileMenuButton
@@ -42,17 +45,17 @@ export function Navbar() {
             isExpanded={mobileMenuState === MobileMenuState.Open}
           />
         </div>
-        <MainMenuLinks routes={appRoutes} />
+        <MainMenuLinks routes={routes} />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <LoginLink route={login} />
+          <LoginLink route={loginRoute} />
         </div>
       </nav>
       <MobileMenu
         open={mobileMenuState === MobileMenuState.Open}
         onClose={handleMenuClose}
-        routes={appRoutes}
-        loginRoute={login}
-        homeRoute={home}
+        routes={routes}
+        loginRoute={loginRoute}
+        homeRoute={homeRoute}
       />
     </>
   );

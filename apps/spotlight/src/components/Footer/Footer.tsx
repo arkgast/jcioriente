@@ -3,7 +3,6 @@ import { Icon, IconNames, IconProps } from '@jcioriente/ui';
 import { ReactElement } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { APP_NAME } from '../../constants';
-import { AppRoutes, getChildrenRoutes } from '../../routes';
 
 type SocialMediaLink = NestedRoute & {
   icon: (props: IconProps) => ReactElement;
@@ -37,7 +36,7 @@ export const socialMediaLinks: SocialMediaLink[] = [
   },
 ];
 
-export function Footer() {
+export function Footer({ routes }: { routes: NestedRoute[] }) {
   const location = useLocation();
   return (
     <div className="mx-auto max-w-full overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
@@ -45,22 +44,20 @@ export function Footer() {
         className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
         aria-label="Footer"
       >
-        {getChildrenRoutes(AppRoutes.footerNavigation).map(
-          (route: NestedRoute) => (
-            <div key={route.name} className="pb-6">
-              <Link
-                to={route.path}
-                className="text-sm leading-6 text-black-light hover:text-secondary"
-                aria-label={`Ir a la página de ${route.name}`}
-                aria-current={
-                  location.pathname === route.path ? 'page' : undefined
-                }
-              >
-                {route.name}
-              </Link>
-            </div>
-          ),
-        )}
+        {routes.map((route: NestedRoute) => (
+          <div key={route.name} className="pb-6">
+            <Link
+              to={route.path}
+              className="text-sm leading-6 text-black-light hover:text-secondary"
+              aria-label={`Ir a la página de ${route.name}`}
+              aria-current={
+                location.pathname === route.path ? 'page' : undefined
+              }
+            >
+              {route.name}
+            </Link>
+          </div>
+        ))}
       </nav>
       <div className="mt-10 flex justify-center space-x-10">
         {socialMediaLinks.map((item) => (

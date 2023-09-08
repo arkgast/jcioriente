@@ -1,12 +1,14 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { AppRoutes, getMainMenuRoutes } from '../../../routes';
-import { MobileMenu } from './MobileMenu';
+import { MainRoutes, appRoutes, getMainMenuRoutes } from '../../../routes';
 import { renderWithRouter } from '../../../test';
+import { MobileMenu } from './MobileMenu';
 
 describe('MobileMenu Component', () => {
-  const routes = getMainMenuRoutes();
-  const homeRoute = AppRoutes.home;
-  const loginRoute = AppRoutes.login;
+  let routes: MainRoutes;
+
+  beforeAll(() => {
+    routes = getMainMenuRoutes();
+  });
 
   it('should render the component', () => {
     renderWithRouter(
@@ -14,8 +16,8 @@ describe('MobileMenu Component', () => {
         open={true}
         onClose={vi.fn()}
         routes={routes}
-        homeRoute={homeRoute}
-        loginRoute={loginRoute}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
       />,
     );
 
@@ -30,15 +32,15 @@ describe('MobileMenu Component', () => {
         open={true}
         onClose={vi.fn()}
         routes={routes}
-        homeRoute={homeRoute}
-        loginRoute={loginRoute}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
       />,
-      { route: AppRoutes.projects.path },
+      { route: appRoutes.projects.path },
     );
 
     const links = screen.getAllByRole('link');
     links.forEach((link) => {
-      if (link.getAttribute('href') === AppRoutes.projects.path) {
+      if (link.getAttribute('href') === appRoutes.projects.path) {
         expect(link).toHaveAttribute('aria-current', 'page');
       } else {
         expect(link).not.toHaveAttribute('aria-current');
@@ -52,8 +54,8 @@ describe('MobileMenu Component', () => {
         open={true}
         onClose={vi.fn()}
         routes={routes}
-        homeRoute={homeRoute}
-        loginRoute={loginRoute}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
       />,
     );
 
@@ -81,8 +83,8 @@ describe('MobileMenu Component', () => {
         open={true}
         onClose={mockOnClose}
         routes={routes}
-        homeRoute={homeRoute}
-        loginRoute={loginRoute}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
       />,
     );
 
@@ -98,8 +100,8 @@ describe('MobileMenu Component', () => {
         open={false}
         onClose={vi.fn()}
         routes={routes}
-        homeRoute={homeRoute}
-        loginRoute={loginRoute}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
       />,
     );
 
@@ -113,8 +115,8 @@ describe('MobileMenu Component', () => {
         open={false}
         onClose={vi.fn()}
         routes={routes}
-        homeRoute={homeRoute}
-        loginRoute={loginRoute}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
       />,
     );
 

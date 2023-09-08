@@ -1,17 +1,37 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { Navbar } from './Navbar';
+import { MainRoutes, appRoutes, getMainMenuRoutes } from '../../routes';
 import { renderWithRouter } from '../../test';
+import { Navbar } from './Navbar';
 
 describe('Navbar Component', () => {
+  let routes: MainRoutes;
+
+  beforeAll(() => {
+    routes = getMainMenuRoutes();
+  });
+
   it('should render the component', () => {
-    renderWithRouter(<Navbar />);
+    renderWithRouter(
+      <Navbar
+        routes={routes}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
+      />,
+    );
 
     const nav = screen.getByRole('navigation');
     expect(nav).toBeInTheDocument();
   });
 
   it('should have the correct aria-current attribute', () => {
-    renderWithRouter(<Navbar />, { route: '/projects' });
+    renderWithRouter(
+      <Navbar
+        routes={routes}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
+      />,
+      { route: '/projects' },
+    );
 
     const links = screen.getAllByRole('link');
     links.forEach((link) => {
@@ -24,7 +44,13 @@ describe('Navbar Component', () => {
   });
 
   it('should have the correct aria-expanded attribute', () => {
-    renderWithRouter(<Navbar />);
+    renderWithRouter(
+      <Navbar
+        routes={routes}
+        homeRoute={appRoutes.home}
+        loginRoute={appRoutes.login}
+      />,
+    );
 
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-expanded', 'false');

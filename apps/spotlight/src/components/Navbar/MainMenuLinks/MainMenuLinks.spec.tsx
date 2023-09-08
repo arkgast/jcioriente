@@ -1,11 +1,10 @@
-import { NestedRoute, Route } from '@jcioriente/types';
 import { fireEvent, screen } from '@testing-library/react';
-import { AppRoutes, getMainMenuRoutes } from '../../../routes';
+import { MainRoutes, appRoutes, getMainMenuRoutes } from '../../../routes';
 import { renderWithRouter } from '../../../test';
 import { MainMenuLinks } from './MainMenuLinks';
 
 describe('MainMenuLinks Component', () => {
-  let routes: Route<Record<string, NestedRoute>>[];
+  let routes: MainRoutes;
 
   beforeAll(() => {
     routes = getMainMenuRoutes();
@@ -30,12 +29,12 @@ describe('MainMenuLinks Component', () => {
 
   it('should update aria-current when location changes', () => {
     renderWithRouter(<MainMenuLinks routes={routes} />, {
-      route: AppRoutes.home.path,
-      additionalEntries: [AppRoutes.about.path],
+      route: appRoutes.home.path,
+      additionalEntries: [appRoutes.about.path],
     });
 
-    const homeLink = screen.getByText(AppRoutes.home.name);
-    const aboutLink = screen.getByText(AppRoutes.about.name);
+    const homeLink = screen.getByText(appRoutes.home.name);
+    const aboutLink = screen.getByText(appRoutes.about.name);
 
     expect(homeLink).toHaveAttribute('aria-current', 'page');
     expect(aboutLink.getAttribute('aria-current')).toBeNull();
