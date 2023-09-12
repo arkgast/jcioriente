@@ -1,4 +1,6 @@
 import AboutImg from '../../assets/about.jpeg';
+import { Link } from 'react-router-dom';
+import { appRoutes } from '../../routes';
 import { people } from './data';
 
 export function About() {
@@ -17,18 +19,12 @@ export function About() {
                 comunidades en el mundo.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                <Link
+                  to={appRoutes.contactUs.path}
+                  className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Get started
-                </a>
-                <a
-                  href="#"
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                  Learn more <span aria-hidden="true">→</span>
-                </a>
+                  Postúlate
+                </Link>
               </div>
             </div>
           </div>
