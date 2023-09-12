@@ -1,17 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Icon, IconNames, Input } from '@jcioriente/ui';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { z } from 'zod';
-
-const schema = z.object({
-  name: z
-    .string()
-    .min(8, { message: 'El nombre debe tener al menos 8 caracteres' }),
-  email: z.string().email({ message: 'El correo electrónico debe ser válido' }),
-  phone: z.string().min(10, { message: 'El teléfono debe tener 8 dígitos' }),
-});
-
-type ContactForm = z.infer<typeof schema>;
+import { ContactForm, schema } from './schema';
 
 export function Contact() {
   const {
@@ -41,6 +31,7 @@ export function Contact() {
               <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <Input
+                    id="name"
                     label="Nombre completo"
                     placeholder="e.g. Baron Rojo"
                     error={!!errors.name}
@@ -51,6 +42,7 @@ export function Contact() {
 
                 <div>
                   <Input
+                    id="email"
                     label="Correo electrónico"
                     placeholder="e.g. baron.rojo@gmail.com"
                     error={!!errors.email}
@@ -61,6 +53,7 @@ export function Contact() {
 
                 <div>
                   <Input
+                    id="phone"
                     label="Teléfono"
                     placeholder="e.g. 69812308"
                     error={!!errors.phone}
