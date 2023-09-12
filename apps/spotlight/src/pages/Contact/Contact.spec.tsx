@@ -20,23 +20,72 @@ describe('Contact', () => {
     expect(container.querySelector('button[type="submit"]')).toBeTruthy();
   });
 
-  it.each([
-    ['', 'El nombre debe tener al menos 8 caracteres'],
-    ['A'.repeat(65), 'El nombre debe tener máximo 64 caracteres'],
-    ['Alejandra', 'El nombre debe tener solo letras y máximo 4 palabras'],
-  ])(
-    'should show an error message when the name is $errorMesssage',
-    (inputValue, errorMessage) => {
-      const { getByLabelText, getByText } = render(<Contact />);
-      const nameInput = getByLabelText('Nombre completo');
-      fireEvent.change(nameInput, inputValue);
+  describe('Submit form', () => {
+    it.each([
+      ['', 'El nombre es requerido'],
+      ['Ana Ana', 'El nombre debe tener mínimo 2 caracteres'],
+      ['A'.repeat(65), 'El nombre debe tener máximo 64 caracteres'],
+      ['Ana +', 'El nombre debe tener solo letras'],
+      [' ', 'El nombre debe tener solo letras'],
+      ['Ana', 'El nombre debe tener de 2 a 4 palabras'],
+    ])(
+      'should show an error message when the name is $errorMesssage',
+      (inputValue, errorMessage) => {
+        const { getByLabelText, getByText } = render(<Contact />);
+        const nameInput = getByLabelText('Nombre completo');
+        const submit = getByText('Postúlate!');
 
-      const submit = getByText('Postúlate!');
-      fireEvent.click(submit);
+        fireEvent.change(nameInput, inputValue);
+        fireEvent.click(submit);
 
-      waitFor(() => {
-        expect(getByLabelText(errorMessage)).toBeInTheDocument();
-      });
-    },
-  );
+        waitFor(() => {
+          expect(getByLabelText(errorMessage)).toBeInTheDocument();
+        });
+      },
+    );
+
+    it.each([
+      ['', 'El correo electrónico es requerido'],
+      ['ana', 'El correo electrónico debe ser válido'],
+      ['ana@gmail', 'El correo electrónico debe ser válido'],
+    ])(
+      'should show an error message when the email is $errorMesssage',
+      (inputValue, errorMessage) => {
+        const { getByLabelText, getByText } = render(<Contact />);
+        const emailInput = getByLabelText('Correo electrónico');
+        const submit = getByText('Postúlate!');
+
+        fireEvent.change(emailInput, inputValue);
+        fireEvent.click(submit);
+
+        waitFor(() => {
+          expect(getByLabelText(errorMessage)).toBeInTheDocument();
+        });
+      },
+    );
+
+    it.each([
+      ['', 'El teléfono es requerido'],
+      ['ana', 'El teléfono debe ser válido'],
+      ['23432344', 'El teléfono fijo debe ser válido'],
+      ['3343', 'El teléfono fijo debe ser válido'],
+      ['43432344 ', 'El teléfono fijo debe ser válido'],
+      ['782938439', 'El número de celular debe ser válido'],
+      ['6', 'El número de celular debe ser válido'],
+    ])(
+      'show show an error message when the phone is $errorMessage',
+      (inputValue, errorMessage) => {
+        const { getByLabelText, getByText } = render(<Contact />);
+        const phoneInput = getByLabelText('Teléfono');
+        const submit = getByText('Postúlate!');
+
+        fireEvent.change(phoneInput, inputValue);
+        fireEvent.click(submit);
+
+        waitFor(() => {
+          expect(getByLabelText(errorMessage)).toBeInTheDocument();
+        });
+      },
+    );
+  });
 });
