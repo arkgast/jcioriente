@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from './components';
 import { Footer } from './components/Footer';
 import { appRoutes, getChildrenRoutes, getMainMenuRoutes } from './routes';
+import './i18n';
 
 export const App = () => {
   return (

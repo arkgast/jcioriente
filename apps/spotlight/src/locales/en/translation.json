@@ -1,0 +1,21 @@
+{
+  "home": {
+    "title": "JCI Oriente"
+  },
+  "mission": {
+    "title": "Mission",
+    "text": "To provide development opportunities that empower young people to create positive change."
+  },
+  "vision": {
+    "title": "Vision",
+    "text": "To be the leading global network of young active citizens."
+  },
+  "values": {
+    "title": "Values",
+    "text": "Our values are: Community, Development, Diversity, Internationalism and Accountability."
+  },
+  "joinUs": {
+    "title": "Join Us",
+    "text": "If you want to be part of this great family, do not hesitate to contact us."
+  }
+}

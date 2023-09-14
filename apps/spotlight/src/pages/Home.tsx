@@ -4,27 +4,35 @@ import {
   PhoneIcon,
 } from '@heroicons/react/20/solid';
 import HomeCover from '../assets/home-cover.jpeg';
+import { useTranslation } from 'react-i18next';
 
+/**
+ * cards is an array of objects with the following structure:
+ * {
+ *  name: string,
+ *  icon: React.ElementType,
+ * }
+ *
+ * name is the name of the card, used to translate the title and text
+ * icon is the icon to be displayed on the card
+ */
 const cards = [
   {
-    name: 'Misión',
-    description:
-      'Ofrecer oportunidades de desarrollo de liderazgo que empoderen a los jóvenes para crear un cambio positivo.',
+    name: 'mission',
     icon: NewspaperIcon,
   },
   {
-    name: 'Visión',
-    description: 'Ser la principal red mundial de jóvenes líderes.',
+    name: 'vision',
     icon: LifebuoyIcon,
   },
   {
-    name: 'Postúlate',
-    description: '¿Quieres ser parte de JCI Oriente? ¡Postúlate!',
+    name: 'joinUs',
     icon: PhoneIcon,
   },
 ];
 
 export function Home() {
+  const { t } = useTranslation();
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-48 sm:py-32">
       <img
@@ -35,7 +43,7 @@ export function Home() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-72">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            JCI Oriente
+            {t('home.title')}
           </h2>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
@@ -49,8 +57,10 @@ export function Home() {
                 aria-hidden="true"
               />
               <div className="text-base leading-7">
-                <h3 className="font-semibold text-white">{card.name}</h3>
-                <p className="mt-2 text-gray-300">{card.description}</p>
+                <h3 className="font-semibold text-white">
+                  {t(`${card.name}.title`)}
+                </h3>
+                <p className="mt-2 text-gray-300">{t(`${card.name}.text`)}</p>
               </div>
             </div>
           ))}

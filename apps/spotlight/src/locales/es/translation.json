@@ -1,0 +1,21 @@
+{
+  "home": {
+    "title": "JCI Oriente"
+  },
+  "mission": {
+    "title": "Misión",
+    "text": "Ofrecer oportunidades de desarrollo de liderazgo que empoderen a los jóvenes para crear un cambio positivo."
+  },
+  "vision": {
+    "title": "Visión",
+    "text": "Ser la organización de jóvenes más relevante del mundo."
+  },
+  "values": {
+    "title": "Valores",
+    "text": "Nuestros valores son: Comunidad, Desarrollo, Diversidad, Internacionalismo y Responsabilidad."
+  },
+  "joinUs": {
+    "title": "Únete",
+    "text": "Si quieres ser parte de esta gran familia, no dudes en contactarnos."
+  }
+}
