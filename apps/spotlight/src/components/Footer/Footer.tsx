@@ -1,7 +1,7 @@
 import { NestedRoute } from '@jcioriente/types';
 import { Icon, IconNames, IconProps } from '@jcioriente/ui';
 import { ReactElement } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { APP_NAME } from '../../constants';
 
 type SocialMediaLink = NestedRoute & {
@@ -46,16 +46,22 @@ export function Footer({ routes }: { routes: NestedRoute[] }) {
       >
         {routes.map((route: NestedRoute) => (
           <div key={route.name} className="pb-6">
-            <Link
+            <NavLink
               to={route.path}
-              className="text-sm leading-6 text-black-light hover:text-secondary"
+              className={({ isActive }) => {
+                const baseClasses = "text-sm leading-6 text-black-light hover:text-secondary"
+                if (!isActive) {
+                  return baseClasses
+                }
+                return `${baseClasses} text-secondary hover:brightness-110`
+              }}
               aria-label={`Ir a la página de ${route.name}`}
               aria-current={
                 location.pathname === route.path ? 'page' : undefined
               }
             >
               {route.name}
-            </Link>
+            </NavLink>
           </div>
         ))}
       </nav>
