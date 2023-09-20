@@ -3,8 +3,8 @@
  */
 export function SuspenseLoader() {
   return (
-    <div className="h-screen flex content-center justify-center flex-wrap">
-      <span className="text-2xl animate-pulse">Cargando...</span>
+    <div className="flex h-screen flex-wrap content-center justify-center">
+      <span className="animate-pulse text-2xl">Cargando...</span>
     </div>
   );
 }

@@ -62,18 +62,18 @@ export const appRoutes: Routes<MainRouteKeys, NestedRouteKeys> = {
         path: '/contactanos',
         name: 'Postúlate',
       },
-      activities: {
-        path: '/actividades',
-        name: 'Actividades',
-      },
+      // activities: {
+      //   path: '/actividades',
+      //   name: 'Actividades',
+      // },
       history: {
         path: '/historia',
         name: 'Historia',
       },
-      alliances: {
-        path: '/alianzas',
-        name: 'Alianzas',
-      },
+      // alliances: {
+      //   path: '/alianzas',
+      //   name: 'Alianzas',
+      // },
     },
   },
 };

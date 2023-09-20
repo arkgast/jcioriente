@@ -86,7 +86,7 @@ export function Contact() {
               <div className="mt-6 grid grid-cols-2 gap-4">
                 <a
                   href="/#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#1D9BF0] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0] bg-[#4267b2]"
+                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#1D9BF0] bg-[#4267b2] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
                 >
                   <Icon
                     name={IconNames.Facebook}
@@ -99,7 +99,7 @@ export function Contact() {
 
                 <a
                   href="/#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#1D9BF0] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0] bg-[#1da1f2]"
+                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#1D9BF0] bg-[#1da1f2] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
                 >
                   <Icon
                     name={IconNames.Twitter}

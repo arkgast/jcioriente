@@ -1,5 +1,5 @@
 import HuellaOrienteImg from '../assets/huella-oriente.jpg';
-import HuellitasAmigasImg from '../assets/huellitas-amigas.jpg'
+import HuellitasAmigasImg from '../assets/huellitas-amigas.jpg';
 
 export function Projects() {
   return (
@@ -33,7 +33,7 @@ export function Projects() {
         </div>
 
         {/*#2*/}
-        <div className="pt-16 grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-16 pt-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
           <div className="px-6 lg:px-0 lg:pr-4 lg:pt-4">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -76,24 +76,27 @@ export function Projects() {
         </div>
 
         {/*#1*/}
-        <div className="pt-16 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:ml-auto lg:pl-4 lg:pt-4">
             <div className="lg:max-w-lg">
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Huellitas amigas
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                La situación de los animales desprotegidos es un reflejo de nuestra sociedad
-                y de la responsabilidad que tenemos hacia aquellos seres que dependen de nosotros.
-                A través de nuestro proyecto, buscamos no solo proveerles un refugio y sustento,
-                sino también educar y concientizar sobre el valor inmenso de una mascota y la cultura de la adopción.
+                La situación de los animales desprotegidos es un reflejo de
+                nuestra sociedad y de la responsabilidad que tenemos hacia
+                aquellos seres que dependen de nosotros. A través de nuestro
+                proyecto, buscamos no solo proveerles un refugio y sustento,
+                sino también educar y concientizar sobre el valor inmenso de una
+                mascota y la cultura de la adopción.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Inspirados por acciones a nivel mundial y reconociendo la situación particular
-                de nuestra región, invitamos a cada uno de ustedes a ser parte de esta
-                transformadora iniciativa. Con tu apoyo, podemos asegurar un futuro mejor para
-                estos animales y, en el proceso, reafirmar los lazos de comunidad y empatía
-                que nos unen como sociedad.
+                Inspirados por acciones a nivel mundial y reconociendo la
+                situación particular de nuestra región, invitamos a cada uno de
+                ustedes a ser parte de esta transformadora iniciativa. Con tu
+                apoyo, podemos asegurar un futuro mejor para estos animales y,
+                en el proceso, reafirmar los lazos de comunidad y empatía que
+                nos unen como sociedad.
               </p>
             </div>
           </div>
@@ -105,7 +108,6 @@ export function Projects() {
             />
           </div>
         </div>
-
       </div>
     </div>
   );

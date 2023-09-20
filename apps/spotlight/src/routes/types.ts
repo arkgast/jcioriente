@@ -10,7 +10,8 @@ export type MainRouteKeys =
 
 export type AboutChildren = 'history' | 'members' | 'presidents';
 
-export type FooterChildren = 'apply' | 'activities' | 'alliances' | 'history';
+// export type FooterChildren = 'apply' | 'activities' | 'alliances' | 'history';
+export type FooterChildren = 'apply' | 'history';
 
 export type NestedRouteKeys = {
   about: Record<AboutChildren, NestedRoute>;

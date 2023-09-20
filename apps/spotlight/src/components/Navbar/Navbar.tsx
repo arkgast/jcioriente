@@ -55,11 +55,11 @@ export function Navbar({ routes, loginRoute, homeRoute }: NavbarProps) {
           <NavLink
             to={loginRoute.path}
             className={({ isActive }) => {
-              const baseClasses = "main-menu-link"
+              const baseClasses = 'main-menu-link';
               if (!isActive) {
-                return baseClasses
+                return baseClasses;
               }
-              return `${baseClasses} text-secondary hover:brightness-110`
+              return `${baseClasses} text-secondary hover:brightness-110`;
             }}
             aria-label={`Ir a la página de ${loginRoute.name}`}
           >

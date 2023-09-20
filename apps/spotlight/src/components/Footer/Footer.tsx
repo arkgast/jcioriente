@@ -49,11 +49,12 @@ export function Footer({ routes }: { routes: NestedRoute[] }) {
             <NavLink
               to={route.path}
               className={({ isActive }) => {
-                const baseClasses = "text-sm leading-6 text-black-light hover:text-secondary"
+                const baseClasses =
+                  'text-black-light hover:text-secondary text-sm leading-6';
                 if (!isActive) {
-                  return baseClasses
+                  return baseClasses;
                 }
-                return `${baseClasses} text-secondary hover:brightness-110`
+                return `${baseClasses} text-secondary hover:brightness-110`;
               }}
               aria-label={`Ir a la página de ${route.name}`}
               aria-current={

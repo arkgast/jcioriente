@@ -40,7 +40,7 @@ export function Home() {
         alt="JCI Oriente"
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
       />
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-72">
+      <div className="mx-auto max-w-7xl px-6 pt-72 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
             {t('home.title')}
@@ -50,10 +50,10 @@ export function Home() {
           {cards.map((card) => (
             <div
               key={card.name}
-              className="flex gap-x-4 rounded-xl bg-gray-900/60 p-6 ring-1 ring-inset ring-white/10 text-shadow"
+              className="text-shadow flex gap-x-4 rounded-xl bg-gray-900/60 p-6 ring-1 ring-inset ring-white/10"
             >
               <card.icon
-                className="h-7 w-5 flex-none text-secondary"
+                className="text-secondary h-7 w-5 flex-none"
                 aria-hidden="true"
               />
               <div className="text-base leading-7">

@@ -22,7 +22,7 @@ export function About() {
               <div className="mt-10 flex items-center gap-x-6">
                 <Link
                   to={appRoutes.contactUs.path}
-                  className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="bg-primary rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Postúlate
                 </Link>
@@ -65,7 +65,7 @@ export function About() {
                 className="rounded-2xl bg-gray-800 px-8 py-10"
               >
                 <img
-                  className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56 object-cover"
+                  className="mx-auto h-48 w-48 rounded-full object-cover md:h-56 md:w-56"
                   src={person.imageUrl}
                   alt=""
                 />
@@ -145,7 +145,7 @@ export function About() {
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <div>
-            <h2 className="text-base font-semibold tracking-wide text-black-600 uppercase">
+            <h2 className="text-black-600 text-base font-semibold uppercase tracking-wide">
               Pasados presidentes
             </h2>
           </div>
@@ -153,14 +153,16 @@ export function About() {
             {pastPresidents.map((person) => (
               <li key={person.name}>
                 <img
-                  className="mx-auto h-24 w-24 rounded-full content-center object-cover"
+                  className="mx-auto h-24 w-24 content-center rounded-full object-cover"
                   src={person.img}
                   alt=""
                 />
                 <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
                   {person.name}
                 </h3>
-                <p className="text-sm leading-6 text-gray-600">Gestión {person.year}</p>
+                <p className="text-sm leading-6 text-gray-600">
+                  Gestión {person.year}
+                </p>
               </li>
             ))}
           </ul>

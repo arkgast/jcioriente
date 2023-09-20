@@ -3,8 +3,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { appRoutes } from './appRoutes';
 
 const About = lazy(() => import('../pages/About'));
-const Activities = lazy(() => import('../pages/Activities'));
-const Alliances = lazy(() => import('../pages/Alliances'));
+// const Activities = lazy(() => import('../pages/Activities'));
+// const Alliances = lazy(() => import('../pages/Alliances'));
 const App = lazy(() => import('../App'));
 const Contact = lazy(() => import('../pages/Contact'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage'));
@@ -40,14 +40,14 @@ const routes = createBrowserRouter([
         path: appRoutes.login.path,
         element: <Login />,
       },
-      {
-        path: appRoutes.footerNavigation.children?.activities.path,
-        element: <Activities />,
-      },
-      {
-        path: appRoutes.footerNavigation.children?.alliances.path,
-        element: <Alliances />,
-      },
+      // {
+      //   path: appRoutes.footerNavigation.children?.activities.path,
+      //   element: <Activities />,
+      // },
+      // {
+      //   path: appRoutes.footerNavigation.children?.alliances.path,
+      //   element: <Alliances />,
+      // },
       {
         path: appRoutes.footerNavigation.children?.history.path,
         element: <History />,

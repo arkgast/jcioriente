@@ -45,11 +45,12 @@ export function MobileMenu(props: MobileMenuProps) {
                   key={route.name}
                   to={route.path}
                   className={({ isActive }) => {
-                    const baseClasses = "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900"
+                    const baseClasses =
+                      '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900';
                     if (!isActive) {
-                      return `${baseClasses} hover:bg-secondary-light`
+                      return `${baseClasses} hover:bg-secondary-light`;
                     }
-                    return `${baseClasses} bg-primary text-white hover:brightness-110`
+                    return `${baseClasses} bg-primary text-white hover:brightness-110`;
                   }}
                   aria-current={
                     location.pathname === route.path ? 'page' : undefined
@@ -65,11 +66,12 @@ export function MobileMenu(props: MobileMenuProps) {
               <NavLink
                 to={loginRoute.path}
                 className={({ isActive }) => {
-                  const baseClasses = "-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900"
+                  const baseClasses =
+                    '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900';
                   if (!isActive) {
                     return `${baseClasses} hover:bg-secondary-light`;
                   }
-                  return `${baseClasses} bg-primary text-white hover:brightness-110`
+                  return `${baseClasses} bg-primary text-white hover:brightness-110`;
                 }}
                 aria-current={
                   location.pathname === loginRoute.path ? 'page' : undefined
