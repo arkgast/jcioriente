@@ -1,7 +1,7 @@
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { BaseRoute } from '@jcioriente/types';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { BrandLogo } from '../BrandLogo';
 
 export type MobileMenuProps = {
@@ -41,30 +41,43 @@ export function MobileMenu(props: MobileMenuProps) {
                 Menu principal
               </h2>
               {routes.map((route) => (
-                <Link
+                <NavLink
                   key={route.name}
                   to={route.path}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className={({ isActive }) => {
+                    const baseClasses = "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900"
+                    if (!isActive) {
+                      return `${baseClasses} hover:bg-secondary-light`
+                    }
+                    return `${baseClasses} bg-primary text-white hover:brightness-110`
+                  }}
                   aria-current={
                     location.pathname === route.path ? 'page' : undefined
                   }
                   aria-label={`Ir a la página de ${route.name}`}
+                  onClick={onClose}
                 >
                   {route.name}
-                </Link>
+                </NavLink>
               ))}
             </div>
             <div className="py-6">
-              <Link
+              <NavLink
                 to={loginRoute.path}
-                className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className={({ isActive }) => {
+                  const baseClasses = "-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900"
+                  if (!isActive) {
+                    return `${baseClasses} hover:bg-secondary-light`;
+                  }
+                  return `${baseClasses} bg-primary text-white hover:brightness-110`
+                }}
                 aria-current={
                   location.pathname === loginRoute.path ? 'page' : undefined
                 }
                 aria-label="Ir a la página de Iniciar sesión"
               >
                 {loginRoute.name}
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>

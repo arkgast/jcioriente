@@ -1,7 +1,7 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { BaseRoute, NestedRoute, Route } from '@jcioriente/types';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
 import { MainMenuLinks } from './MainMenuLinks';
 import { MobileMenu } from './MobileMenu';
@@ -52,13 +52,19 @@ export function Navbar({ routes, loginRoute, homeRoute }: NavbarProps) {
         </div>
         <MainMenuLinks routes={routes} />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
+          <NavLink
             to={loginRoute.path}
-            className="main-menu-link"
+            className={({ isActive }) => {
+              const baseClasses = "main-menu-link"
+              if (!isActive) {
+                return baseClasses
+              }
+              return `${baseClasses} text-secondary hover:brightness-110`
+            }}
             aria-label={`Ir a la página de ${loginRoute.name}`}
           >
             {loginRoute.name} <span aria-hidden="true">&rarr;</span>
-          </Link>
+          </NavLink>
         </div>
       </nav>
       <MobileMenu
