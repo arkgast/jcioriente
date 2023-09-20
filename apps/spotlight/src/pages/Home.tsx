@@ -9,8 +9,8 @@ import { useTranslation } from 'react-i18next';
 /**
  * cards is an array of objects with the following structure:
  * {
- *  name: string,
- *  icon: React.ElementType,
+ *   name: string,
+ *   icon: React.ElementType,
  * }
  *
  * name is the name of the card, used to translate the title and text

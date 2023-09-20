@@ -1,7 +1,8 @@
 import AboutImg from '../../assets/about.jpeg';
 import { Link } from 'react-router-dom';
 import { appRoutes } from '../../routes';
-import { people } from './data';
+import { board } from './board';
+import { pastPresidents } from './past-presidents';
 
 export function About() {
   return (
@@ -58,13 +59,13 @@ export function About() {
             </p>
           </div>
           <ul className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-            {people.map((person) => (
+            {board.map((person) => (
               <li
                 key={person.name}
                 className="rounded-2xl bg-gray-800 px-8 py-10"
               >
                 <img
-                  className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56"
+                  className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56 object-cover"
                   src={person.imageUrl}
                   alt=""
                 />
@@ -140,24 +141,26 @@ export function About() {
         </div>
       </div>
 
-      {/* Members */}
+      {/* Past presidents */}
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <div>
-            <h2>Nuestros miembros</h2>
+            <h2 className="text-base font-semibold tracking-wide text-black-600 uppercase">
+              Pasados presidentes
+            </h2>
           </div>
           <ul className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6">
-            {people.map((person) => (
+            {pastPresidents.map((person) => (
               <li key={person.name}>
                 <img
-                  className="mx-auto h-24 w-24 rounded-full"
-                  src={person.imageUrl}
+                  className="mx-auto h-24 w-24 rounded-full content-center object-cover"
+                  src={person.img}
                   alt=""
                 />
                 <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
                   {person.name}
                 </h3>
-                <p className="text-sm leading-6 text-gray-600">{person.role}</p>
+                <p className="text-sm leading-6 text-gray-600">Gestión {person.year}</p>
               </li>
             ))}
           </ul>

@@ -1,6 +1,6 @@
 import { BaseRoute } from '@jcioriente/types';
 import { Link, useLocation } from 'react-router-dom';
-import LogoImg from '../../../assets/logo.jpeg';
+import LogoImg from '../../../assets/logo.png';
 import { APP_NAME } from '../../../constants';
 
 export function BrandLogo({ route }: { route: BaseRoute }) {
