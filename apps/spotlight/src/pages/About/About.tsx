@@ -1,5 +1,5 @@
-import AboutImg from '../../assets/about.jpeg';
 import { Link } from 'react-router-dom';
+import AboutImg from '../../assets/about.jpeg';
 import { appRoutes } from '../../routes';
 import { board } from './board';
 import { pastPresidents } from './past-presidents';

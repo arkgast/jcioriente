@@ -10,12 +10,12 @@
 
 @layer components {
   .main-menu-link {
-    @apply font-semibold text-base leading-6 text-dark hover:text-secondary;
+    @apply text-dark hover:text-secondary text-base font-semibold leading-6;
   }
 
   .header-navbar {
-    @apply inset-x-0 top-0 z-50 border-b-2 border-secondary border-opacity-40;
-    @apply bg-white border-b-2 border-secondary border-opacity-40;
+    @apply border-secondary inset-x-0 top-0 z-50 border-b-2 border-opacity-40;
+    @apply border-secondary border-b-2 border-opacity-40 bg-white;
   }
 
   .social-icon {

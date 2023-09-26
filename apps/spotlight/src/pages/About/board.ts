@@ -1,22 +1,22 @@
-import AmandaCastroImg from '../../assets/board/AmandaCastro.jpg'
-import FernandaDonosoImg from '../../assets/board/FernandaDonoso.jpg'
-import BenazirPenaImg from '../../assets/board/BenazirPena.jpg'
-import AnabelyIbanezImg from '../../assets/board/AnabelyIbanez.jpg'
-import BaronRojoImg from '../../assets/board/BaronRojo.jpg'
-import JhoanneRoblesImg from '../../assets/board/JhoanneRobles.jpg'
-import RubenQuispeImg from '../../assets/board/RubenQuispe.jpg'
-import JonathanCastroImg from '../../assets/board/JonathanCastro.jpg'
-import JonathanRosadoImg from '../../assets/board/JonathanRosado.jpg'
-import AbigailMamaniImg from '../../assets/board/AbigailMamani.jpg'
-import JoseBryanChoqueImg from '../../assets/board/JoseBryanChoque.jpg'
-import JhonnyGonzalesImg from '../../assets/board/JhonnyGonzales.jpg'
-import YeisonFloresImg from '../../assets/board/YeisonFlores.jpg'
-import GabrielAlpiryImg from '../../assets/board/GabrielAlpiry.jpg'
-import AracelyApazaImg from '../../assets/board/AracelyApaza.jpg'
-import LuzCamilaChoqueImg from '../../assets/board/LuzCamilaChoque.jpg'
-import JuanCarlosOrellanaImg from '../../assets/board/JuanCarlosOrellana.jpg'
-import LeonardoSeverichImg from '../../assets/board/LeonardoSeverich.jpg'
-import PedroSolizImg from '../../assets/board/PedroSoliz.jpg'
+import AbigailMamaniImg from '../../assets/board/AbigailMamani.jpg';
+import AmandaCastroImg from '../../assets/board/AmandaCastro.jpg';
+import AnabelyIbanezImg from '../../assets/board/AnabelyIbanez.jpg';
+import AracelyApazaImg from '../../assets/board/AracelyApaza.jpg';
+import BaronRojoImg from '../../assets/board/BaronRojo.jpg';
+import BenazirPenaImg from '../../assets/board/BenazirPena.jpg';
+import FernandaDonosoImg from '../../assets/board/FernandaDonoso.jpg';
+import GabrielAlpiryImg from '../../assets/board/GabrielAlpiry.jpg';
+import JhoanneRoblesImg from '../../assets/board/JhoanneRobles.jpg';
+import JhonnyGonzalesImg from '../../assets/board/JhonnyGonzales.jpg';
+import JonathanCastroImg from '../../assets/board/JonathanCastro.jpg';
+import JonathanRosadoImg from '../../assets/board/JonathanRosado.jpg';
+import JoseBryanChoqueImg from '../../assets/board/JoseBryanChoque.jpg';
+import JuanCarlosOrellanaImg from '../../assets/board/JuanCarlosOrellana.jpg';
+import LeonardoSeverichImg from '../../assets/board/LeonardoSeverich.jpg';
+import LuzCamilaChoqueImg from '../../assets/board/LuzCamilaChoque.jpg';
+import PedroSolizImg from '../../assets/board/PedroSoliz.jpg';
+import RubenQuispeImg from '../../assets/board/RubenQuispe.jpg';
+import YeisonFloresImg from '../../assets/board/YeisonFlores.jpg';
 
 export const board = [
   {
@@ -151,5 +151,5 @@ export const board = [
     imageUrl: PedroSolizImg,
     twitterUrl: '#',
     linkedinUrl: '#',
-  }
+  },
 ];

@@ -3,8 +3,8 @@ import {
   NewspaperIcon,
   PhoneIcon,
 } from '@heroicons/react/20/solid';
-import HomeCover from '../assets/home-cover.jpeg';
 import { useTranslation } from 'react-i18next';
+import HomeCover from '../assets/home-cover.jpeg';
 
 /**
  * cards is an array of objects with the following structure:
@@ -37,7 +37,7 @@ export function Home() {
     <div className="relative isolate overflow-hidden bg-gray-900 py-48 sm:py-32">
       <img
         src={HomeCover}
-        alt="JCI Oriente"
+        alt="JCI Oriented"
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
       />
       <div className="mx-auto max-w-7xl px-6 pt-72 lg:px-8">
